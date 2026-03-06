@@ -1,7 +1,8 @@
-import { Hero } from "@/components/sections/Hero";
 import { EntitySpotlight } from "@/components/sections/EntitySpotlight";
-import { Vision } from "@/components/sections/Vision";
 import { Footer } from "@/components/sections/Footer";
+import { Hero } from "@/components/sections/Hero";
+import { TheDispatch } from "@/components/sections/TheDispatch";
+import { Vision } from "@/components/sections/Vision";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <EntitySpotlight />
       <Vision />
+      <TheDispatch />
       <Footer />
     </main>
   );

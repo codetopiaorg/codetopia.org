@@ -1,99 +1,152 @@
 "use client";
 
-import React from "react";
-import { Button } from "@/components/ui/Button";
-import { Instagram, Twitter, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import type React from "react";
+import { useState } from "react";
+import {
+  FaBluesky,
+  FaCheck,
+  FaCopy,
+  FaEnvelope,
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaThreads,
+  FaWhatsapp,
+  FaXTwitter,
+} from "react-icons/fa6";
 import logo from "@/assets/images/logos/Codetopia-Logo-TW.png";
 
 export const Footer = () => {
-    return (
-        <footer className="bg-black pt-32 pb-12 px-6 overflow-hidden">
-            <div className="max-w-7xl mx-auto">
-                <div className="grid lg:grid-cols-2 gap-20 mb-32">
-                    <div className="space-y-12">
-                        <div className="space-y-6">
-                            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">
-                                Join the <br /> <span className="text-zinc-800">Journey.</span>
-                            </h2>
-                            <p className="text-zinc-500 text-lg max-w-md font-sans leading-relaxed">
-                                Codetopia is larger than any one division. It is a commitment to engineering excellence and technical sovereignty.
-                            </p>
-                        </div>
-
-                        <div className="flex gap-6">
-                            <SocialLink href="#" icon={Twitter} />
-                            <SocialLink href="#" icon={Instagram} />
-                            <SocialLink href="#" icon={Linkedin} />
-                            <SocialLink href="#" icon={Github} />
-                        </div>
-                    </div>
-
-                    <div className="bg-zinc-950 border border-zinc-900 p-8 md:p-12 space-y-8 relative overflow-hidden group">
-                        {/* Mesh Background */}
-                        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/[0.01] blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-white/[0.02] transition-colors duration-1000" />
-
-                        <div className="space-y-2 relative z-10">
-                            <h3 className="text-2xl font-black uppercase italic tracking-wider">The Dispatch</h3>
-                            <p className="text-zinc-500 text-sm font-sans">
-                                Get the latest from the ecosystem. No noise, just engineering updates and mission logs.
-                            </p>
-                        </div>
-
-                        <form className="space-y-4 relative z-10" onSubmit={(e) => e.preventDefault()}>
-                            <div className="relative">
-                                <input
-                                    type="email"
-                                    placeholder="EMAIL@ADDRESS.COM"
-                                    className="w-full bg-zinc-900 border border-zinc-800 px-6 h-16 uppercase text-xs font-bold tracking-[0.2em] focus:border-white focus:outline-none transition-colors"
-                                />
-                            </div>
-                            <Button size="xl" variant="primary" className="w-full">
-                                Subscribe <ArrowUpRight className="ml-2 w-5 h-5" />
-                            </Button>
-                        </form>
-                    </div>
-                </div>
-
-                <div className="pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-8">
-                    <div className="flex flex-col items-center md:items-start gap-4">
-                        <Image
-                            src={logo}
-                            alt="Codetopia"
-                            width={120}
-                            height={40}
-                            className="w-auto h-8 object-contain brightness-0 invert opacity-50 hover:opacity-100 transition-opacity"
-                        />
-                        <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.4em]">
-                            © 2026 Ecosystem Core
-                        </p>
-                    </div>
-
-                    <div className="flex gap-12">
-                        <FooterLink href="#">Privacy Policy</FooterLink>
-                        <FooterLink href="#">Brand Assets</FooterLink>
-                        <FooterLink href="#">Infrastructure</FooterLink>
-                    </div>
-                </div>
+  return (
+    <footer className="bg-black pt-20 md:pt-32 pb-12 px-6 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-16 md:gap-20 mb-24 md:mb-32">
+          <div className="space-y-8 md:space-y-12 max-w-2xl">
+            <div className="space-y-6">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] md:leading-none">
+                Join the <br /> <span className="text-zinc-800">Journey.</span>
+              </h2>
+              <p className="text-zinc-500 text-lg md:text-xl font-sans leading-relaxed tracking-tight">
+                Codetopia is larger than any one division.{" "}
+                <br className="hidden md:block" />
+                It is a shared commitment to engineering excellence.
+              </p>
+              <ContactEmail email="codetopia@codetopia.tech" />
             </div>
-        </footer>
-    );
+          </div>
+
+          <div className="grid grid-cols-4 sm:flex gap-3 md:gap-4 lg:gap-6 w-full lg:w-auto">
+            <SocialLink href="#" label="X" icon={FaXTwitter} />
+            <SocialLink href="#" label="LinkedIn" icon={FaLinkedin} />
+            <SocialLink href="#" label="Instagram" icon={FaInstagram} />
+            <SocialLink href="#" label="BlueSky" icon={FaBluesky} />
+            <SocialLink href="#" label="GitHub" icon={FaGithub} />
+            <SocialLink href="#" label="Threads" icon={FaThreads} />
+            <SocialLink href="#" label="Facebook" icon={FaFacebook} />
+            <SocialLink href="#" label="Whatsapp" icon={FaWhatsapp} />
+          </div>
+        </div>
+
+        <div className="pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <Image
+              src={logo}
+              alt="Codetopia"
+              width={160}
+              height={54}
+              className="w-auto h-12 object-contain brightness-0 invert opacity-50 hover:opacity-100 transition-opacity"
+            />
+            <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.4em]">
+              © 2026 Ecosystem Core
+            </p>
+          </div>
+
+          <div className="flex gap-8 sm:gap-12 text-center md:text-right flex-wrap justify-center">
+            <FooterLink href="#">Privacy Policy</FooterLink>
+            <FooterLink href="#">Brand Assets</FooterLink>
+            <FooterLink href="/about">About</FooterLink>
+            <FooterLink href="#">Contact</FooterLink>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
-const SocialLink = ({ href, icon: Icon }: { href: string; icon: any }) => (
-    <a
-        href={href}
-        className="w-12 h-12 flex items-center justify-center border border-zinc-900 bg-zinc-950 text-zinc-600 hover:text-white hover:border-white transition-all duration-300 transform hover:-translate-y-1"
-    >
-        <Icon size={18} strokeWidth={1.5} />
-    </a>
+const ContactEmail = ({ email }: { email: string }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="flex flex-wrap items-center gap-4 group/email pt-4">
+      <div className="flex items-center gap-2">
+        <FaEnvelope className="w-3.5 h-3.5 text-zinc-600" />
+        <span className="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-zinc-600">
+          Official Inquiries
+        </span>
+      </div>
+      <div className="flex items-center gap-3">
+        <span className="text-sm md:text-base font-normal tracking-tighter text-zinc-400 group-hover/email:text-white transition-colors">
+          {email}
+        </span>
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="p-2 bg-zinc-900/50 border border-zinc-900 text-zinc-600 hover:text-white hover:border-zinc-700 transition-all rounded shadow-sm relative overflow-hidden active:scale-95"
+          title="Copy Email"
+        >
+          {copied ? (
+            <FaCheck className="w-3.5 h-3.5 text-white" />
+          ) : (
+            <FaCopy className="w-3.5 h-3.5" />
+          )}
+        </button>
+        {copied && (
+          <span className="text-[10px] font-bold text-white uppercase tracking-widest animate-pulse">
+            Copied
+          </span>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const SocialLink = ({
+  href,
+  icon: Icon,
+  label,
+}: {
+  href: string;
+  icon: any;
+  label: string;
+}) => (
+  <a
+    href={href}
+    aria-label={label}
+    className="w-full sm:w-12 h-12 flex items-center justify-center border border-zinc-900 bg-zinc-950 text-zinc-600 hover:text-white hover:border-white transition-all duration-300 transform hover:-translate-y-1 group"
+  >
+    <Icon className="w-5 h-5 fill-current" />
+  </a>
 );
 
-const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-    <a
-        href={href}
-        className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 hover:text-white transition-colors"
-    >
-        {children}
-    </a>
+const FooterLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => (
+  <a
+    href={href}
+    className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-600 hover:text-white transition-colors"
+  >
+    {children}
+  </a>
 );
