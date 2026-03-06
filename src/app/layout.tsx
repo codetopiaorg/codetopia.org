@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "Engineering the future.",
 };
 
+import { Navbar } from "@/components/layout/Navbar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +29,7 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
