@@ -23,8 +23,9 @@ export const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Vision", href: "/#vision" },
-    { name: "Contact", href: "#contact" },
+    { name: "Architecture", href: "/architecture" },
+    { name: "Ecosystem", href: "/ecosystem" },
+    { name: "Initiatives", href: "/initiatives" },
   ];
 
   return (
@@ -61,12 +62,6 @@ export const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link
-            href="/#contact"
-            className="px-6 py-2 border border-zinc-800 bg-zinc-950 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 hover:text-white hover:border-white transition-all"
-          >
-            Connect
-          </Link>
         </div>
 
         {/* Mobile Toggle */}

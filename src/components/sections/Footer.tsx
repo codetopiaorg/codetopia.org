@@ -66,8 +66,6 @@ export const Footer = () => {
           <div className="flex gap-8 sm:gap-12 text-center md:text-right flex-wrap justify-center">
             <FooterLink href="#">Privacy Policy</FooterLink>
             <FooterLink href="#">Brand Assets</FooterLink>
-            <FooterLink href="/about">About</FooterLink>
-            <FooterLink href="#">Contact</FooterLink>
           </div>
         </div>
       </div>

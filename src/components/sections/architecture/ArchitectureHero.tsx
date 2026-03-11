@@ -17,11 +17,6 @@ export const ArchitectureHero = () => {
             </div>
 
             <div className="max-w-5xl mx-auto relative z-10 space-y-12">
-                <div className="flex justify-center mb-8">
-                    <div className="px-4 py-1 border border-zinc-800 bg-zinc-950 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">
-                        Operational Framework
-                    </div>
-                </div>
 
                 <h1 className="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter leading-[0.85] text-white">
                     Strategy & <br /> <span className="text-zinc-800">Architecture.</span>
