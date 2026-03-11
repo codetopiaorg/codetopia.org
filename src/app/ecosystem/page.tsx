@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { CurrentInitiatives } from "@/components/sections/ecosystem/CurrentInitiatives";
-import { EcosystemEvolution } from "@/components/sections/ecosystem/EcosystemEvolution";
 import { EcosystemHero } from "@/components/sections/ecosystem/EcosystemHero";
-import { SystemArchitecture } from "@/components/sections/ecosystem/SystemArchitecture";
+import { EcosystemDiagram } from "@/components/sections/shared/EcosystemDiagram";
+import { InitiativeGrid } from "@/components/sections/initiatives/InitiativeGrid";
+import { StrategicConnection } from "@/components/sections/initiatives/StrategicConnection";
+import { FutureInitiatives } from "@/components/sections/initiatives/FutureInitiatives";
 import { Footer } from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
@@ -15,9 +16,10 @@ export default function EcosystemPage() {
   return (
     <main className="min-h-screen bg-black">
       <EcosystemHero />
-      <SystemArchitecture />
-      <CurrentInitiatives />
-      <EcosystemEvolution />
+      <EcosystemDiagram />
+      <InitiativeGrid />
+      <StrategicConnection />
+      <FutureInitiatives />
       <Footer />
     </main>
   );

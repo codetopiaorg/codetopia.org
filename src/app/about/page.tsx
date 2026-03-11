@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { AboutHero } from "@/components/sections/about/AboutHero";
 import { CoreValues } from "@/components/sections/about/CoreValues";
-import { EcosystemDiagram } from "@/components/sections/about/EcosystemDiagram";
+import { EcosystemDiagram } from "@/components/sections/shared/EcosystemDiagram";
 import { GovernanceOperations } from "@/components/sections/about/GovernanceOperations";
 import { VisionMission } from "@/components/sections/about/VisionMission";
 import { Footer } from "@/components/sections/Footer";

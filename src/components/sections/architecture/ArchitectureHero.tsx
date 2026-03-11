@@ -24,11 +24,11 @@ export const ArchitectureHero = () => {
 
                 <div className="max-w-3xl mx-auto space-y-8 pt-4 text-left md:text-center">
                     <p className="text-xl md:text-3xl font-black uppercase tracking-tight text-zinc-400 leading-tight">
-                        Codetopia.org serves as the coordinating core for a network of independent initiatives.
+                        Providing the structural orchestration and standards that enable autonomous innovation.
                     </p>
                     <div className="space-y-6">
                         <p className="text-zinc-600 text-sm md:text-lg font-sans leading-relaxed max-w-2xl mx-auto">
-                            As the mother organization, it provides governance, infrastructure, and standards that enable specialized divisions to operate autonomously while remaining aligned with the ecosystem’s long-term strategy. This structure ensures initiatives grow independently without compromising overall cohesion.
+                            The architecture of Codetopia is built on high-performance governance. We provide the infrastructure and frameworks that allow specialized divisions to scale independently while maintaining the technical integrity of the entire ecosystem.
                         </p>
                     </div>
                 </div>

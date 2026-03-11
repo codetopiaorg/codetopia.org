@@ -3,23 +3,23 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const initiatives = [
+export const initiatives = [
     {
         name: "Codetopia Community",
-        domain: "Mentorship & Learning",
-        description: "A global ecosystem for developers, focusing on mentorship, leadership, and collaborative growth.",
+        focus: "Mentorship & Learning",
+        description: "A global community where builders learn, collaborate, and develop technical leadership through mentorship, events, and open collaboration.",
         href: "https://community.codetopia.tech",
     },
     {
         name: "Codetopia Labs",
-        domain: "R&D & Prototyping",
-        description: "A dedicated division for experimentation, supporting innovation within the ecosystem’s framework.",
+        focus: "R&D & Prototyping",
+        description: "An experimental division focused on building new technologies, frameworks, and advanced systems through research and prototyping.",
         href: "https://labs.codetopia.tech",
     },
     {
         name: "Codetopia Studio",
-        domain: "Knowledge & Production",
-        description: "A media-focused division producing high-quality educational content and knowledge assets.",
+        focus: "Knowledge & Production",
+        description: "Produces high-quality educational content, tutorials, podcasts, and technical media that share knowledge across the ecosystem.",
         href: "https://studio.codetopia.tech",
     },
 ];
@@ -47,7 +47,7 @@ export const InitiativeGrid = () => {
                                     </h3>
                                     <div className="inline-block border border-zinc-800 px-3 py-1 bg-zinc-950">
                                         <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500 italic">
-                                            {item.domain}
+                                            {item.focus}
                                         </span>
                                     </div>
                                 </div>

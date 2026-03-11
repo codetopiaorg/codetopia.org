@@ -9,17 +9,17 @@ export const ScalabilityModel = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                     <div className="order-2 lg:order-1 relative">
                         <div className="space-y-4">
-                            <div className="h-20 border border-zinc-900 bg-zinc-950 flex items-center justify-between px-8 group hover:border-zinc-500 transition-all">
-                                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white">Tier 01: Core Architecture</span>
-                                <Layers className="w-4 h-4 text-zinc-800 group-hover:text-zinc-400" />
+                            <div className="h-24 border border-zinc-900 bg-zinc-950 flex items-center justify-between px-8 group hover:border-zinc-500 transition-all">
+                                <span className="text-xs font-black uppercase tracking-widest text-zinc-700 group-hover:text-white">Tier 01: Core Architecture</span>
+                                <Layers className="w-5 h-5 text-zinc-800 group-hover:text-zinc-400" />
                             </div>
-                            <div className="h-20 border border-zinc-900 bg-zinc-950 flex items-center justify-between px-8 group hover:border-zinc-500 transition-all ml-4">
-                                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white">Tier 02: Strategic Initiatives</span>
-                                <Layers className="w-4 h-4 text-zinc-800 group-hover:text-zinc-400" />
+                            <div className="h-24 border border-zinc-900 bg-zinc-950 flex items-center justify-between px-8 group hover:border-zinc-500 transition-all ml-4">
+                                <span className="text-xs font-black uppercase tracking-widest text-zinc-700 group-hover:text-white">Tier 02: Strategic Initiatives</span>
+                                <Layers className="w-5 h-5 text-zinc-800 group-hover:text-zinc-400" />
                             </div>
-                            <div className="h-20 border border-zinc-800 bg-black flex items-center justify-between px-8 group border-dashed ml-8 animate-pulse">
-                                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500 group-hover:text-white">Tier 03: Future Expansion</span>
-                                <ArrowUpRight className="w-4 h-4 text-zinc-600" />
+                            <div className="h-24 border border-zinc-800 bg-black flex items-center justify-between px-8 group border-dashed ml-8 animate-pulse">
+                                <span className="text-xs font-black uppercase tracking-widest text-zinc-500 group-hover:text-white">Tier 03: Future Expansion</span>
+                                <ArrowUpRight className="w-5 h-5 text-zinc-600" />
                             </div>
                         </div>
                     </div>
