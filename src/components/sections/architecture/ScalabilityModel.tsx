@@ -19,7 +19,6 @@ export const ScalabilityModel = () => {
                             </div>
                             <div className="h-24 border border-zinc-800 bg-black flex items-center justify-between px-8 group border-dashed ml-8 animate-pulse">
                                 <span className="text-xs font-black uppercase tracking-widest text-zinc-500 group-hover:text-white">Tier 03: Future Expansion</span>
-                                <ArrowUpRight className="w-5 h-5 text-zinc-600" />
                             </div>
                         </div>
                     </div>
