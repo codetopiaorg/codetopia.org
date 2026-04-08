@@ -1,17 +1,17 @@
+import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import {
-  FaXTwitter,
-  FaLinkedinIn,
   FaGithub,
   FaInstagram,
+  FaLinkedinIn,
+  FaXTwitter,
 } from "react-icons/fa6";
 import { Footer } from "@/components/sections/Footer";
-import { team } from "@/lib/team";
 import type { SocialHandle } from "@/lib/team";
+import { team } from "@/lib/team";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -121,8 +121,8 @@ export default async function MemberPage({ params }: Props) {
             </h2>
           </div>
           <div className="space-y-5 text-zinc-400 font-sans leading-relaxed text-base md:text-lg">
-            {member.fullBio.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
+            {member.fullBio.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
         </div>

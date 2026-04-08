@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { initiatives, type Initiative } from "@/lib/initiatives";
+import Image from "next/image";
+import { type Initiative, initiatives } from "@/lib/initiatives";
 import { cn, getXlGridCols } from "@/lib/utils";
 
 export const EntitySpotlight = () => {

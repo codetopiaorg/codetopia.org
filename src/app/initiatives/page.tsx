@@ -1,8 +1,8 @@
+import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { initiatives } from "@/lib/initiatives";
 import { Footer } from "@/components/sections/Footer";
+import { initiatives } from "@/lib/initiatives";
 
 export const metadata: Metadata = {
   title: "Initiatives | Codetopia",

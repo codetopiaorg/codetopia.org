@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  FaXTwitter,
-  FaLinkedinIn,
   FaGithub,
   FaInstagram,
+  FaLinkedinIn,
+  FaXTwitter,
 } from "react-icons/fa6";
 import { Footer } from "@/components/sections/Footer";
-import { team } from "@/lib/team";
 import type { SocialHandle } from "@/lib/team";
+import { team } from "@/lib/team";
 
 export const metadata: Metadata = {
   title: "About | Codetopia",

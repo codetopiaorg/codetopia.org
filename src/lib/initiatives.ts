@@ -3,15 +3,15 @@ import {
   Cpu,
   GraduationCap,
   Heart,
-  Users,
   type LucideIcon,
+  Users,
 } from "lucide-react";
 import type { StaticImageData } from "next/image";
-import communityLogo from "@/assets/images/logos/initiative-logos/codetopia-community.png";
-import studioLogo from "@/assets/images/logos/initiative-logos/codetopia-studios.png";
-import labsLogo from "@/assets/images/logos/initiative-logos/codetopia-labs.png";
-import foundationLogo from "@/assets/images/logos/initiative-logos/codetopia-foundation.png";
 import academyLogo from "@/assets/images/logos/initiative-logos/codetopia-academy.png";
+import communityLogo from "@/assets/images/logos/initiative-logos/codetopia-community.png";
+import foundationLogo from "@/assets/images/logos/initiative-logos/codetopia-foundation.png";
+import labsLogo from "@/assets/images/logos/initiative-logos/codetopia-labs.png";
+import studioLogo from "@/assets/images/logos/initiative-logos/codetopia-studios.png";
 
 export type InitiativeStatus = "Active" | "Coming Soon";
 
