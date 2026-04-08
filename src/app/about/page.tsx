@@ -1,15 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import {
-  FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-  FaXTwitter,
-} from "react-icons/fa6";
 import { Footer } from "@/components/sections/Footer";
-import type { SocialHandle } from "@/lib/team";
-import { team } from "@/lib/team";
 
 export const metadata: Metadata = {
   title: "About | Codetopia",
@@ -35,15 +25,6 @@ const principles = [
     body: "Launching an initiative is not the achievement. Bridging the gap it was built for is. That is the question every initiative has to answer, and the standard Codetopia holds itself to.",
   },
 ];
-
-const socialIcon = (platform: SocialHandle["platform"]) => {
-  const props = { size: 14 };
-  if (platform === "twitter") return <FaXTwitter {...props} />;
-  if (platform === "linkedin") return <FaLinkedinIn {...props} />;
-  if (platform === "github") return <FaGithub {...props} />;
-  if (platform === "instagram") return <FaInstagram {...props} />;
-  return null;
-};
 
 export default function AboutPage() {
   return (

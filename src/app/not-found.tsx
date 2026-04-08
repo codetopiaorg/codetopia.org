@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -18,7 +18,10 @@ export default function NotFound() {
         className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-black bg-white px-6 py-4 hover:bg-zinc-200 transition-colors group"
       >
         Back to home
-        <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+        <ArrowRight
+          size={12}
+          className="group-hover:translate-x-0.5 transition-transform"
+        />
       </Link>
     </main>
   );
