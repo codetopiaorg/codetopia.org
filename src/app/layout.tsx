@@ -13,8 +13,30 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://codetopia.tech"),
   title: "Codetopia",
-  description: "Engineering the future.",
+  description:
+    "Codetopia is the organization behind a growing network of technology initiatives developing talent, producing content, driving innovation, and creating social impact across Ghana, Africa and beyond.",
+  openGraph: {
+    title: "Codetopia",
+    description:
+      "The organization behind Africa's growing technology ecosystem.",
+    url: "https://codetopia.tech",
+    siteName: "Codetopia",
+    // TODO: Add /og.png to the /public folder
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Codetopia",
+    description:
+      "The organization behind Africa's growing technology ecosystem.",
+    // TODO: Update with real handle once account is active
+    // creator: "@codetopia",
+    images: ["/og.png"],
+  },
 };
 
 import { Navbar } from "@/components/layout/Navbar";
