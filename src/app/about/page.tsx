@@ -135,7 +135,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-20 md:py-32 px-6 bg-zinc-950 border-b border-zinc-900">
+      {/* <section className="py-20 md:py-32 px-6 bg-zinc-950 border-b border-zinc-900">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="space-y-5 max-w-xl">
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
@@ -154,25 +154,18 @@ export default function AboutPage() {
                 key={member.slug}
                 className="relative aspect-[3/4] overflow-hidden group bg-zinc-900"
               >
-                {/* Photo */}
                 <Image
                   src={member.photo}
                   alt={member.name}
                   fill
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
-
-                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-
-                {/* Full-card link — sits above photo/gradient, below content */}
                 <Link
                   href={`/about/${member.slug}`}
                   className="absolute inset-0 z-0"
                   aria-label={`View ${member.name}'s profile`}
                 />
-
-                {/* Content — sits above the full-card link */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3 z-10">
                   <div className="space-y-1">
                     <h3 className="text-white font-black tracking-tight text-lg leading-tight">
@@ -182,8 +175,6 @@ export default function AboutPage() {
                       {member.role}
                     </p>
                   </div>
-
-                  {/* Social handles — also above the card link */}
                   <div className="flex items-center gap-3 pt-1">
                     {member.socials.map((social) => (
                       <a
@@ -203,7 +194,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Principles */}
       <section className="py-20 md:py-32 px-6 bg-black border-b border-zinc-900">
