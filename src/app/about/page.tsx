@@ -30,12 +30,13 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black">
       {/* Hero */}
-      <section className="pt-40 pb-24 md:pt-52 md:pb-36 px-6 border-b border-zinc-900">
-        <div className="max-w-7xl mx-auto space-y-8">
+      <section className="pt-40 pb-24 md:pt-52 md:pb-36 px-6 border-b border-zinc-900 relative overflow-hidden">
+        <div className="absolute inset-0 tech-grid opacity-40 pointer-events-none" />
+        <div className="max-w-7xl mx-auto space-y-8 relative">
           <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
             About Codetopia
           </p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-black tracking-tighter leading-[0.9] text-white max-w-5xl">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-black tracking-tighter leading-[0.9] gradient-text max-w-5xl">
             We build the organizations that build the future.
           </h1>
           <p className="text-zinc-500 font-sans leading-relaxed max-w-xl text-base md:text-lg pt-2">
@@ -53,7 +54,7 @@ export default function AboutPage() {
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
               The Problem
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95] gradient-text">
               The talent exists.
               <br />
               The platform doesn't.
@@ -84,7 +85,7 @@ export default function AboutPage() {
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
               How We Work
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95] gradient-text">
               One organization.
               <br />
               Many focused initiatives.
@@ -115,76 +116,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
-      {/* <section className="py-20 md:py-32 px-6 bg-zinc-950 border-b border-zinc-900">
-        <div className="max-w-7xl mx-auto space-y-16">
-          <div className="space-y-5 max-w-xl">
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
-              The Team
-            </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95]">
-              The people
-              <br />
-              building this.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {team.map((member) => (
-              <div
-                key={member.slug}
-                className="relative aspect-[3/4] overflow-hidden group bg-zinc-900"
-              >
-                <Image
-                  src={member.photo}
-                  alt={member.name}
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                <Link
-                  href={`/about/${member.slug}`}
-                  className="absolute inset-0 z-0"
-                  aria-label={`View ${member.name}'s profile`}
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3 z-10">
-                  <div className="space-y-1">
-                    <h3 className="text-white font-black tracking-tight text-lg leading-tight">
-                      {member.name}
-                    </h3>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-500">
-                      {member.role}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3 pt-1">
-                    {member.socials.map((social) => (
-                      <a
-                        key={social.platform}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} on ${social.platform}`}
-                        className="text-zinc-600 hover:text-white transition-colors"
-                      >
-                        {socialIcon(social.platform)}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       {/* Principles */}
-      <section className="py-20 md:py-32 px-6 bg-black border-b border-zinc-900">
+      <section className="py-20 md:py-32 px-6 bg-zinc-950 border-b border-zinc-900">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="max-w-2xl space-y-5">
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
               What We Stand For
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95] gradient-text">
               The principles that
               <br />
               govern everything we build.
@@ -192,14 +131,19 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-zinc-800">
-            {principles.map((principle) => (
+            {principles.map((principle, i) => (
               <div
                 key={principle.title}
-                className="bg-black p-8 md:p-10 space-y-4"
+                className="bg-zinc-950 p-8 md:p-10 space-y-4 hover:bg-zinc-900/50 transition-colors group"
               >
-                <h3 className="text-sm font-black uppercase tracking-tight text-white">
-                  {principle.title}
-                </h3>
+                <div className="flex items-start justify-between">
+                  <h3 className="text-sm font-black uppercase tracking-tight text-white">
+                    {principle.title}
+                  </h3>
+                  <span className="text-[9px] font-black text-zinc-800 group-hover:text-zinc-700 transition-colors tabular-nums shrink-0 ml-4">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
                 <p className="text-zinc-500 font-sans text-sm leading-relaxed">
                   {principle.body}
                 </p>

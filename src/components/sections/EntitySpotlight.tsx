@@ -7,17 +7,29 @@ export const EntitySpotlight = () => {
   return (
     <section
       id="initiatives"
-      className="py-16 md:py-24 px-6 bg-black border-t border-zinc-900"
+      className="py-20 md:py-32 px-6 bg-black border-t border-zinc-900"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12 md:mb-16 space-y-3">
-          <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
-            The Initiatives
-          </p>
-          <h2 className="text-3xl md:text-5xl font-black tracking-tighter">
-            One organization.
-            <br className="sm:hidden" /> Many fronts.
-          </h2>
+        <div className="mb-14 md:mb-20 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <div className="space-y-3">
+            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
+              The Initiatives
+            </p>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter gradient-text">
+              One organization.
+              <br className="sm:hidden" /> Many fronts.
+            </h2>
+          </div>
+          <a
+            href="/initiatives"
+            className="shrink-0 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors group"
+          >
+            View all
+            <ArrowRight
+              size={12}
+              className="group-hover:translate-x-0.5 transition-transform"
+            />
+          </a>
         </div>
 
         <div
@@ -33,14 +45,14 @@ export const EntitySpotlight = () => {
                 href={initiative.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-8 flex flex-col gap-8 justify-between bg-white text-black hover:bg-zinc-100 transition-colors group"
+                className="p-8 flex flex-col gap-8 justify-between bg-white text-black hover:bg-zinc-50 transition-colors group"
               >
                 <CardContent initiative={initiative} />
               </a>
             ) : (
               <div
                 key={initiative.name}
-                className="p-8 flex flex-col gap-8 justify-between bg-black"
+                className="p-8 flex flex-col gap-8 justify-between bg-zinc-950 hover:bg-zinc-900/60 transition-colors"
               >
                 <CardContent initiative={initiative} />
               </div>
@@ -57,15 +69,15 @@ const CardContent = ({ initiative }: { initiative: Initiative }) => (
     <div className="space-y-5">
       <div className="flex items-center justify-between">
         <initiative.icon
-          size={20}
+          size={18}
           strokeWidth={1.5}
-          className={initiative.link ? "text-black" : "text-zinc-700"}
+          className={initiative.link ? "text-zinc-400" : "text-zinc-700"}
         />
         <Image
           src={initiative.logo}
           alt={initiative.name}
-          height={20}
-          className={`h-5 w-auto object-contain ${initiative.link ? "brightness-0" : "brightness-0 invert opacity-30"}`}
+          height={18}
+          className={`h-[18px] w-auto object-contain ${initiative.link ? "brightness-0" : "brightness-0 invert opacity-25"}`}
         />
       </div>
       <div className="space-y-2">
@@ -80,7 +92,7 @@ const CardContent = ({ initiative }: { initiative: Initiative }) => (
         <p
           className={cn(
             "text-xs font-sans leading-relaxed",
-            initiative.link ? "text-zinc-700" : "text-zinc-600",
+            initiative.link ? "text-zinc-600" : "text-zinc-600",
           )}
         >
           {initiative.description}

@@ -13,7 +13,6 @@ import {
 } from "react-icons/fa6";
 import logo from "@/assets/images/logos/Codetopia-Logo-TW.png";
 
-// Update placeholder hrefs (#) with real URLs when accounts are ready.
 const socials = [
   { label: "X", icon: FaXTwitter, href: "https://x.com/codetopia_" },
   {
@@ -34,18 +33,21 @@ export const Footer = () => {
   return (
     <footer
       id="contact"
-      className="bg-black pt-20 md:pt-32 pb-12 px-6 border-t border-zinc-900"
+      className="bg-black pt-20 md:pt-32 pb-12 px-6 border-t border-zinc-900 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto space-y-16">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
-          <div className="space-y-4">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-[0.9]">
+      {/* Subtle glow */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+
+      <div className="max-w-7xl mx-auto space-y-16 relative">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-10">
+          <div className="space-y-5">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-[0.9] gradient-text">
               Get in touch.
             </h2>
             <CopyEmail email="hello@codetopia.org" />
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2">
             {socials.map((social) => (
               <a
                 key={social.label}
@@ -53,9 +55,9 @@ export const Footer = () => {
                 aria-label={social.label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 flex items-center justify-center border border-zinc-900 bg-zinc-950 text-zinc-600 hover:text-white hover:border-zinc-700 transition-all"
+                className="w-11 h-11 flex items-center justify-center border border-zinc-900 bg-zinc-950 text-zinc-600 hover:text-white hover:border-zinc-700 hover:bg-zinc-900 transition-all"
               >
-                <social.icon className="w-4 h-4" />
+                <social.icon className="w-3.5 h-3.5" />
               </a>
             ))}
           </div>
@@ -67,7 +69,7 @@ export const Footer = () => {
             alt="Codetopia"
             width={140}
             height={44}
-            className="w-auto h-9 object-contain brightness-0 invert opacity-40"
+            className="w-auto h-8 object-contain brightness-0 invert opacity-30"
           />
           <p className="text-[10px] font-bold text-zinc-700 uppercase tracking-[0.4em]">
             © 2026 Codetopia · Built in Ghana
@@ -105,7 +107,7 @@ const CopyEmail = ({ email }: { email: string }) => {
         )}
       </button>
       {copied && (
-        <span className="text-[10px] font-bold text-white uppercase tracking-widest">
+        <span className="text-[10px] font-bold text-white uppercase tracking-widest animate-fade-in">
           Copied
         </span>
       )}

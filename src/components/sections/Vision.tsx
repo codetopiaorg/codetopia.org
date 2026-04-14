@@ -12,15 +12,14 @@ export const Vision = () => {
           <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
             Our Mission
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95] gradient-text">
             Building the organizations
             <br />
             that shape tomorrow.
           </h2>
           <p className="text-zinc-500 font-sans leading-relaxed">
             Everything Codetopia does maps back to one of these commitments.
-            Each initiative exists to advance them. New initiatives will be
-            established as the organization grows.
+            Each initiative exists to advance them.
           </p>
         </div>
 
@@ -30,14 +29,19 @@ export const Vision = () => {
             getXlGridCols(pillars.length),
           )}
         >
-          {pillars.map((pillar) => (
+          {pillars.map((pillar, i) => (
             <div
               key={pillar.label}
-              className="bg-zinc-950 p-6 md:p-8 space-y-3"
+              className="bg-zinc-950 p-6 md:p-8 space-y-4 hover:bg-zinc-900/50 transition-colors group"
             >
-              <h3 className="text-sm font-black uppercase tracking-widest text-white">
-                {pillar.label}
-              </h3>
+              <div className="flex items-start justify-between">
+                <h3 className="text-sm font-black uppercase tracking-widest text-white">
+                  {pillar.label}
+                </h3>
+                <span className="text-[9px] font-black text-zinc-800 group-hover:text-zinc-700 transition-colors tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
               <p className="text-xs text-zinc-500 font-sans leading-relaxed">
                 {pillar.description}
               </p>

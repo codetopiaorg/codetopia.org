@@ -28,12 +28,13 @@ export default function InitiativesPage() {
   return (
     <main className="min-h-screen bg-black">
       {/* Hero */}
-      <section className="pt-40 pb-24 md:pt-52 md:pb-36 px-6 border-b border-zinc-900">
-        <div className="max-w-7xl mx-auto space-y-8">
+      <section className="pt-40 pb-24 md:pt-52 md:pb-36 px-6 border-b border-zinc-900 relative overflow-hidden">
+        <div className="absolute inset-0 tech-grid opacity-40 pointer-events-none" />
+        <div className="max-w-7xl mx-auto space-y-8 relative">
           <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
             The Initiatives
           </p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-black tracking-tighter leading-[0.9] text-white max-w-4xl">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-black tracking-tighter leading-[0.9] gradient-text max-w-4xl">
             {numberWords[initiatives.length] ?? initiatives.length} fronts.
             <br />
             One mission.
@@ -52,17 +53,17 @@ export default function InitiativesPage() {
           {initiatives.map((initiative, index) => (
             <div
               key={initiative.name}
-              className="py-14 md:py-20 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 md:gap-20 items-start"
+              className="py-14 md:py-20 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 md:gap-20 items-start group"
             >
               {/* Left */}
               <div className="space-y-5">
                 <div className="flex items-center gap-4">
                   <initiative.icon
-                    size={20}
+                    size={18}
                     strokeWidth={1.5}
                     className="text-zinc-600"
                   />
-                  <span className="text-[9px] font-black uppercase tracking-widest text-zinc-700">
+                  <span className="text-[9px] font-black uppercase tracking-widest text-zinc-800">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -70,7 +71,7 @@ export default function InitiativesPage() {
                   src={initiative.logo}
                   alt={initiative.name}
                   height={28}
-                  className="h-7 w-auto object-contain brightness-0 invert opacity-80"
+                  className="h-7 w-auto object-contain brightness-0 invert opacity-70"
                 />
                 <h2 className="text-2xl sm:text-3xl font-black tracking-tighter text-white">
                   {initiative.name}
@@ -79,7 +80,7 @@ export default function InitiativesPage() {
                   className={`inline-block text-[9px] font-black uppercase tracking-widest px-3 py-1.5 ${
                     initiative.status === "Active"
                       ? "bg-white text-black"
-                      : "bg-zinc-900 text-zinc-600"
+                      : "bg-zinc-900 text-zinc-600 border border-zinc-800"
                   }`}
                 >
                   {initiative.status}
@@ -105,7 +106,7 @@ export default function InitiativesPage() {
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
               Stay Updated
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95] gradient-text">
               More initiatives
               <br />
               are on the way.

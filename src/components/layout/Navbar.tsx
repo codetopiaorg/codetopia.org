@@ -33,18 +33,21 @@ export const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 ${
         scrolled
-          ? "py-4 bg-black/80 backdrop-blur-xl border-b border-zinc-900"
+          ? "py-4 bg-black/70 backdrop-blur-2xl border-b border-white/[0.06]"
           : "py-8 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link href="/">
+        <Link
+          href="/"
+          className="opacity-90 hover:opacity-100 transition-opacity"
+        >
           <Image
             src={logo}
             alt="Codetopia"
             width={140}
             height={40}
-            className="w-auto h-7 md:h-9 object-contain brightness-0 invert"
+            className="w-auto h-7 md:h-8 object-contain brightness-0 invert"
             priority
           />
         </Link>
@@ -58,7 +61,7 @@ export const Navbar = () => {
               className={`text-[10px] font-black uppercase tracking-[0.3em] transition-colors ${
                 isActive(link.href)
                   ? "text-white"
-                  : "text-zinc-500 hover:text-white"
+                  : "text-zinc-500 hover:text-zinc-200"
               }`}
             >
               {link.name}
@@ -79,7 +82,7 @@ export const Navbar = () => {
 
       {/* Mobile menu */}
       <div
-        className={`fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-12 transition-all duration-500 md:hidden ${
+        className={`fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-12 transition-all duration-500 md:hidden ${
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
