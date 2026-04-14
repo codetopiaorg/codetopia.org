@@ -32,17 +32,16 @@ export const Vision = () => {
           {pillars.map((pillar, i) => (
             <div
               key={pillar.label}
-              className="bg-zinc-950 p-6 md:p-8 space-y-4 hover:bg-zinc-900/50 transition-colors group"
+              className="relative bg-zinc-950 p-8 md:p-10 space-y-4 hover:bg-zinc-900/40 transition-colors group overflow-hidden"
             >
-              <div className="flex items-start justify-between">
-                <h3 className="text-sm font-black uppercase tracking-widest text-white">
-                  {pillar.label}
-                </h3>
-                <span className="text-[9px] font-black text-zinc-800 group-hover:text-zinc-700 transition-colors tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <p className="text-xs text-zinc-500 font-sans leading-relaxed">
+              {/* Big decorative number */}
+              <span className="absolute top-4 right-5 text-[40px] font-black text-zinc-900 group-hover:text-zinc-800 transition-colors leading-none select-none tabular-nums">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="relative text-sm font-black uppercase tracking-widest text-white z-10">
+                {pillar.label}
+              </h3>
+              <p className="relative text-sm text-zinc-500 font-sans leading-relaxed z-10">
                 {pillar.description}
               </p>
             </div>

@@ -112,7 +112,7 @@ const CardContent = ({ initiative }: { initiative: Initiative }) => (
       {initiative.link ? (
         <ArrowRight
           size={14}
-          className="text-black group-hover:translate-x-0.5 transition-transform"
+          className="text-black group-hover:translate-x-1 transition-transform"
         />
       ) : (
         <a

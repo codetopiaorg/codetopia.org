@@ -34,7 +34,7 @@ export const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 ${
         scrolled
           ? "py-4 bg-black/70 backdrop-blur-2xl border-b border-white/[0.06]"
-          : "py-8 bg-transparent"
+          : "py-8 bg-black/20 backdrop-blur-sm border-b border-white/[0.04]"
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
