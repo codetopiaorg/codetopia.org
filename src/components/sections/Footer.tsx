@@ -6,6 +6,7 @@ import {
   FaCheck,
   FaCopy,
   // FaGithub,
+  FaBluesky,
   FaInstagram,
   FaLinkedin,
   FaThreads,
@@ -32,6 +33,7 @@ const socials = [
     href: "https://www.threads.com/@codetopiaorg",
   },
   { label: "YouTube", icon: FaYoutube, href: "https://youtube.com/@codetopiaorg" },
+  { label: "Bluesky", icon: FaBluesky, href: "https://bsky.app/profile/codetopiaorg.bsky.social" },
   // { label: "GitHub", icon: FaGithub, href: "https://github.com/codetopia" },
 ];
 
