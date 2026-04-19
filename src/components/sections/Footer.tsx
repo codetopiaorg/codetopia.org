@@ -9,6 +9,7 @@ import {
   FaBluesky,
   FaInstagram,
   FaLinkedin,
+  FaMastodon,
   FaThreads,
   FaXTwitter,
   FaYoutube,
@@ -34,6 +35,7 @@ const socials = [
   },
   { label: "YouTube", icon: FaYoutube, href: "https://youtube.com/@codetopiaorg" },
   { label: "Bluesky", icon: FaBluesky, href: "https://bsky.app/profile/codetopiaorg.bsky.social" },
+  { label: "Mastodon", icon: FaMastodon, href: "https://mastodon.social/@codetopiaorg" },
   // { label: "GitHub", icon: FaGithub, href: "https://github.com/codetopia" },
 ];
 
