@@ -5,7 +5,7 @@ import { useState } from "react";
 import {
   FaCheck,
   FaCopy,
-  FaGithub,
+  // FaGithub,
   FaInstagram,
   FaLinkedin,
   FaXTwitter,
@@ -18,7 +18,7 @@ const socials = [
   {
     label: "LinkedIn",
     icon: FaLinkedin,
-    href: "https://linkedin.com/company/codetopia",
+    href: "https://linkedin.com/company/codetopiaorg/",
   },
   {
     label: "Instagram",
@@ -26,22 +26,19 @@ const socials = [
     href: "https://instagram.com/codetopia_",
   },
   { label: "YouTube", icon: FaYoutube, href: "#" },
-  { label: "GitHub", icon: FaGithub, href: "https://github.com/codetopia" },
+  // { label: "GitHub", icon: FaGithub, href: "https://github.com/codetopia" },
 ];
 
 export const Footer = () => {
   return (
     <footer
       id="contact"
-      className="bg-black pt-20 md:pt-32 pb-12 px-6 border-t border-zinc-900 relative overflow-hidden"
+      className="bg-black pt-20 md:pt-32 pb-12 px-6 border-t border-zinc-900"
     >
-      {/* Subtle glow */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
-
-      <div className="max-w-7xl mx-auto space-y-16 relative">
+      <div className="max-w-7xl mx-auto space-y-16">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-10">
           <div className="space-y-5">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-[0.9] gradient-text">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-[0.9] text-white">
               Get in touch.
             </h2>
             <CopyEmail email="hello@codetopia.org" />

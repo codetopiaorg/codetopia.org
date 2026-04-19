@@ -9,20 +9,27 @@ import logo from "@/assets/images/logos/Codetopia-Logo-TW.png";
 
 const navLinks = [
   { name: "About", href: "/about" },
-  { name: "Initiatives", href: "/initiatives" },
   { name: "Contact", href: "/#contact" },
 ];
 
+const WHITE_HERO_PAGES = ["/", "/about"];
+
 export const Navbar = () => {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const hasWhiteHero = WHITE_HERO_PAGES.includes(pathname);
+  const isWhite = hasWhiteHero && !scrolledPastHero;
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setScrolledPastHero(window.scrollY > window.innerHeight - 80);
+    };
+    setScrolledPastHero(window.scrollY > window.innerHeight - 80);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const isActive = (href: string) => {
     if (href.startsWith("/#")) return false;
@@ -31,10 +38,8 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 ${
-        scrolled
-          ? "py-4 bg-black/70 backdrop-blur-2xl border-b border-white/[0.06]"
-          : "py-8 bg-black/20 backdrop-blur-sm border-b border-white/[0.04]"
+      className={`fixed top-0 left-0 right-0 z-50 py-6 px-6 border-b transition-colors duration-300 ${
+        isWhite ? "bg-white border-zinc-200" : "bg-black border-zinc-900"
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -47,7 +52,9 @@ export const Navbar = () => {
             alt="Codetopia"
             width={140}
             height={40}
-            className="w-auto h-7 md:h-8 object-contain brightness-0 invert"
+            className={`w-auto h-7 md:h-8 object-contain brightness-0 transition-all duration-300 ${
+              isWhite ? "" : "invert"
+            }`}
             priority
           />
         </Link>
@@ -60,8 +67,12 @@ export const Navbar = () => {
               href={link.href}
               className={`text-[10px] font-black uppercase tracking-[0.3em] transition-colors ${
                 isActive(link.href)
-                  ? "text-white"
-                  : "text-zinc-500 hover:text-zinc-200"
+                  ? isWhite
+                    ? "text-black"
+                    : "text-white"
+                  : isWhite
+                    ? "text-zinc-400 hover:text-black"
+                    : "text-zinc-500 hover:text-zinc-200"
               }`}
             >
               {link.name}
@@ -72,7 +83,11 @@ export const Navbar = () => {
         {/* Mobile toggle */}
         <button
           type="button"
-          className="md:hidden p-2 text-zinc-500 hover:text-white transition-colors relative z-50"
+          className={`md:hidden p-2 transition-colors relative z-50 ${
+            isWhite
+              ? "text-zinc-400 hover:text-black"
+              : "text-zinc-500 hover:text-white"
+          }`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -82,7 +97,9 @@ export const Navbar = () => {
 
       {/* Mobile menu */}
       <div
-        className={`fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-12 transition-all duration-500 md:hidden ${
+        className={`fixed inset-0 z-40 flex flex-col items-center justify-center gap-12 transition-all duration-300 md:hidden ${
+          isWhite ? "bg-white" : "bg-black"
+        } ${
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -95,8 +112,12 @@ export const Navbar = () => {
             onClick={() => setMenuOpen(false)}
             className={`text-2xl font-black uppercase tracking-widest transition-colors ${
               isActive(link.href)
-                ? "text-white"
-                : "text-zinc-600 hover:text-white"
+                ? isWhite
+                  ? "text-black"
+                  : "text-white"
+                : isWhite
+                  ? "text-zinc-400 hover:text-black"
+                  : "text-zinc-600 hover:text-white"
             }`}
           >
             {link.name}

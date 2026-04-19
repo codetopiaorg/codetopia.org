@@ -32,15 +32,15 @@ export const TheDispatch = () => {
   return (
     <section
       id="dispatch"
-      className="relative px-6 bg-zinc-950 border-t border-zinc-900 overflow-hidden"
+      className="px-6 bg-zinc-950 border-t border-zinc-900"
     >
-      <div className="relative max-w-7xl mx-auto py-24 md:py-40">
+      <div className="max-w-7xl mx-auto py-24 md:py-40">
         <div className="grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
           <div className="space-y-6">
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
               The Dispatch
             </p>
-            <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter leading-[0.9] gradient-text">
+            <h2 className="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter leading-[0.9] text-white">
               Stay in
               <br />
               the loop.
@@ -51,10 +51,7 @@ export const TheDispatch = () => {
             </p>
           </div>
 
-          <div className="relative">
-            {/* Accent line */}
-            <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-white/20 via-white/5 to-transparent" />
-
+          <div>
             {submitted ? (
               <div className="flex flex-col items-start gap-5 py-8">
                 <div className="w-12 h-12 bg-white flex items-center justify-center">

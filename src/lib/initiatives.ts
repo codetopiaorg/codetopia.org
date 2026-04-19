@@ -4,6 +4,7 @@ import {
   GraduationCap,
   Heart,
   type LucideIcon,
+  ShoppingBag,
   Users,
 } from "lucide-react";
 import type { StaticImageData } from "next/image";
@@ -11,6 +12,7 @@ import academyLogo from "@/assets/images/logos/initiative-logos/codetopia-academ
 import communityLogo from "@/assets/images/logos/initiative-logos/codetopia-community.png";
 import foundationLogo from "@/assets/images/logos/initiative-logos/codetopia-foundation.png";
 import labsLogo from "@/assets/images/logos/initiative-logos/codetopia-labs.png";
+import marketLogo from "@/assets/images/logos/initiative-logos/codetopia-market.png";
 import studioLogo from "@/assets/images/logos/initiative-logos/codetopia-studios.png";
 
 export type InitiativeStatus = "Active" | "Coming Soon";
@@ -76,5 +78,15 @@ export const initiatives: Initiative[] = [
     link: null,
     description:
       "The education division delivering structured programs, courses, and certifications for the next generation of technologists.",
+  },
+  {
+    name: "Codetopia Market",
+    shortName: "Market",
+    icon: ShoppingBag,
+    logo: marketLogo,
+    status: "Coming Soon",
+    link: null,
+    description:
+      "The commerce platform of the Codetopia ecosystem — delivering branded merchandise, event apparel, and tech products for individuals and organizations that mean business.",
   },
 ];

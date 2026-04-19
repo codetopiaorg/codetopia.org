@@ -28,13 +28,12 @@ export default function InitiativesPage() {
   return (
     <main className="min-h-screen bg-black">
       {/* Hero */}
-      <section className="pt-40 pb-24 md:pt-52 md:pb-36 px-6 border-b border-zinc-900 relative overflow-hidden">
-        <div className="absolute inset-0 tech-grid opacity-40 pointer-events-none" />
-        <div className="max-w-7xl mx-auto space-y-8 relative">
+      <section className="pt-40 pb-24 md:pt-52 md:pb-36 px-6 border-b border-zinc-900">
+        <div className="max-w-7xl mx-auto space-y-8">
           <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
             The Initiatives
           </p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-black tracking-tighter leading-[0.9] gradient-text max-w-4xl">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-black tracking-tighter leading-[0.9] text-white max-w-4xl">
             {numberWords[initiatives.length] ?? initiatives.length} fronts.
             <br />
             One mission.
@@ -106,7 +105,7 @@ export default function InitiativesPage() {
             <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
               Stay Updated
             </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95] gradient-text">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95] text-white">
               More initiatives
               <br />
               are on the way.
