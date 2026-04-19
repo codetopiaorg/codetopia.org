@@ -8,13 +8,14 @@ import {
   // FaGithub,
   FaInstagram,
   FaLinkedin,
+  FaThreads,
   FaXTwitter,
   FaYoutube,
 } from "react-icons/fa6";
 import logo from "@/assets/images/logos/Codetopia-Logo-TW.png";
 
 const socials = [
-  { label: "X", icon: FaXTwitter, href: "https://x.com/codetopia_" },
+  { label: "X", icon: FaXTwitter, href: "https://x.com/codetopiaorg" },
   {
     label: "LinkedIn",
     icon: FaLinkedin,
@@ -23,9 +24,14 @@ const socials = [
   {
     label: "Instagram",
     icon: FaInstagram,
-    href: "https://instagram.com/codetopia_",
+    href: "https://instagram.com/codetopiaorg",
   },
-  { label: "YouTube", icon: FaYoutube, href: "#" },
+  {
+    label: "Threads",
+    icon: FaThreads,
+    href: "https://www.threads.com/@codetopiaorg",
+  },
+  { label: "YouTube", icon: FaYoutube, href: "https://youtube.com/@codetopiaorg" },
   // { label: "GitHub", icon: FaGithub, href: "https://github.com/codetopia" },
 ];
 
