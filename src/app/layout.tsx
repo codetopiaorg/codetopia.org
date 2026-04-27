@@ -16,28 +16,59 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://codetopia.tech"),
-  title: "Codetopia",
+  title: {
+    default: "Codetopia | The Technology Ecosystem",
+    template: "%s | Codetopia",
+  },
   description:
     "Codetopia is the organization behind a growing network of technology initiatives developing talent, producing content, driving innovation, and creating social impact across Ghana, Africa and beyond.",
+  keywords: [
+    "Codetopia",
+    "technology ecosystem",
+    "Africa tech",
+    "Ghana technology",
+    "tech community",
+    "developer community",
+    "tech education",
+    "innovation",
+  ],
+  authors: [{ name: "Codetopia" }],
+  creator: "Codetopia",
+  publisher: "Codetopia",
   openGraph: {
-    title: "Codetopia",
+    title: "Codetopia | The Technology Ecosystem",
     description:
       "The organization behind Africa's growing technology ecosystem.",
     url: "https://codetopia.tech",
     siteName: "Codetopia",
-    // TODO: Add /og.png to the /public folder
-    images: [{ url: "/og.png", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Codetopia - The Technology Ecosystem",
+      },
+    ],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Codetopia",
+    title: "Codetopia | The Technology Ecosystem",
     description:
       "The organization behind Africa's growing technology ecosystem.",
-    // TODO: Update with real handle once account is active
-    // creator: "@codetopia",
     images: ["/og.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

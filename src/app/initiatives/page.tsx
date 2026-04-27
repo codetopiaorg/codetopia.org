@@ -12,6 +12,30 @@ export const metadata: Metadata = {
   title: "Initiatives | Codetopia",
   description:
     "Each Codetopia initiative is purpose-built to close a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
+  openGraph: {
+    title: "Initiatives | Codetopia",
+    description:
+      "Each initiative is purpose-built to close a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
+    url: "https://codetopia.tech/initiatives",
+    siteName: "Codetopia",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Codetopia Initiatives",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Initiatives | Codetopia",
+    description:
+      "Each initiative is purpose-built to close a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
+    images: ["/og.png"],
+  },
 };
 
 export default function InitiativesPage() {

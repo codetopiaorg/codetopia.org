@@ -10,6 +10,30 @@ export const metadata: Metadata = {
   title: "About | Codetopia",
   description:
     "Codetopia is building the organizations that build the future of technology in Ghana, Africa, and beyond.",
+  openGraph: {
+    title: "About | Codetopia",
+    description:
+      "We build the organizations that build the future. One organization. A growing network of focused initiatives, each purpose-built to close a specific gap in Africa's technology ecosystem.",
+    url: "https://codetopia.tech/about",
+    siteName: "Codetopia",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "About Codetopia",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Codetopia",
+    description:
+      "We build the organizations that build the future. Purpose-built initiatives closing gaps in Africa's technology ecosystem.",
+    images: ["/og.png"],
+  },
 };
 
 const principles = [
