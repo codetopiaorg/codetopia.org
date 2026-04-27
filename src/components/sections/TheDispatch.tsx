@@ -75,10 +75,14 @@ export const TheDispatch = () => {
               </div>
             ) : (
               <form className="space-y-4" onSubmit={handleSubmit}>
-                <label className="block font-sans text-xs text-zinc-600 tracking-[0.3em] uppercase mb-4">
+                <label
+                  htmlFor="dispatch-email"
+                  className="block font-sans text-xs text-zinc-600 tracking-[0.3em] uppercase mb-4"
+                >
                   Your email address
                 </label>
                 <input
+                  id="dispatch-email"
                   type="email"
                   required
                   value={email}

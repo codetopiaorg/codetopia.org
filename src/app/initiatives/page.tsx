@@ -52,7 +52,7 @@ export default function InitiativesPage() {
                     "group relative flex flex-col p-8 md:p-10 border transition-all duration-300 overflow-hidden h-full",
                     isActive
                       ? "border-white/[0.08] hover:border-white/[0.22] cursor-pointer"
-                      : "border-white/[0.04] opacity-40 pointer-events-none"
+                      : "border-white/[0.04] opacity-40 pointer-events-none",
                   )}
                 >
                   {/* Hover glow */}
@@ -69,14 +69,20 @@ export default function InitiativesPage() {
                   {/* Top: logo + status */}
                   <div className="relative flex items-start justify-between mb-10">
                     <div className="flex items-center gap-3">
-                      <initiative.icon size={16} className={cn("text-zinc-500 shrink-0", !isActive && "opacity-30")} />
+                      <initiative.icon
+                        size={16}
+                        className={cn(
+                          "text-zinc-500 shrink-0",
+                          !isActive && "opacity-30",
+                        )}
+                      />
                       <Image
                         src={initiative.logo}
                         alt={initiative.name}
                         height={22}
                         className={cn(
                           "h-[22px] w-auto object-contain brightness-0 invert",
-                          !isActive && "opacity-30"
+                          !isActive && "opacity-30",
                         )}
                       />
                     </div>
@@ -117,9 +123,9 @@ export default function InitiativesPage() {
 
               return (
                 <Reveal key={initiative.name} delay={i * 55} className="h-full">
-                  {isActive ? (
+                  {isActive && initiative.link ? (
                     <a
-                      href={initiative.link!}
+                      href={initiative.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block h-full"
