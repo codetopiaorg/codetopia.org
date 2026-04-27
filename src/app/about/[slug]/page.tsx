@@ -44,13 +44,13 @@ export default async function MemberPage({ params }: Props) {
   if (!member) notFound();
 
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-[#080808]">
       {/* Back */}
       <div className="pt-32 pb-0 px-6">
         <div className="max-w-7xl mx-auto">
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-600 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-zinc-600 hover:text-white transition-colors"
           >
             <ArrowLeft size={12} />
             The Team
@@ -59,10 +59,10 @@ export default async function MemberPage({ params }: Props) {
       </div>
 
       {/* Hero — photo + identity */}
-      <section className="pt-12 pb-24 md:pb-36 px-6 border-b border-zinc-900">
+      <section className="pt-12 pb-24 md:pb-36 px-6 border-b border-white/[0.07]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 md:gap-20 items-end">
           {/* Photo */}
-          <div className="relative aspect-[3/4] overflow-hidden bg-zinc-900 w-full max-w-[320px] lg:max-w-none">
+          <div className="relative aspect-[3/4] overflow-hidden bg-white/[0.04] w-full max-w-[320px] lg:max-w-none">
             <Image
               src={member.photo}
               alt={member.name}
@@ -76,7 +76,7 @@ export default async function MemberPage({ params }: Props) {
           {/* Identity */}
           <div className="space-y-8 pb-2">
             <div className="space-y-3">
-              <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
+              <p className="text-xs font-bold uppercase tracking-[0.4em] text-zinc-600">
                 {member.role}
               </p>
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-[0.9] text-white">
@@ -89,14 +89,14 @@ export default async function MemberPage({ params }: Props) {
             </p>
 
             {/* Socials */}
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               {member.socials.map((social) => (
                 <a
                   key={social.platform}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors border border-zinc-800 hover:border-zinc-600 px-4 py-2.5"
+                  className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors border border-white/[0.08] hover:border-white/[0.2] px-4 py-2.5"
                 >
                   {socialIcon(social.platform)}
                   <span>{social.handle}</span>
@@ -108,12 +108,10 @@ export default async function MemberPage({ params }: Props) {
       </section>
 
       {/* Full bio */}
-      <section className="py-20 md:py-32 px-6 bg-zinc-950 border-b border-zinc-900">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 md:gap-20">
-          <div className="space-y-3">
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
-              About
-            </p>
+      <section className="relative py-20 md:py-32 px-6 bg-[#080808] border-b border-white/[0.07] overflow-hidden">
+        <div className="absolute inset-0 glow-top pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 md:gap-20">
+          <div>
             <h2 className="text-2xl sm:text-3xl font-black tracking-tighter text-white">
               In their own
               <br />

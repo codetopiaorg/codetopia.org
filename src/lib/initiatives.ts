@@ -87,6 +87,6 @@ export const initiatives: Initiative[] = [
     status: "Coming Soon",
     link: null,
     description:
-      "The commerce platform of the Codetopia ecosystem — delivering branded merchandise, event apparel, and tech products for individuals and organizations that mean business.",
+      "The commerce platform of the Codetopia ecosystem. Branded merchandise, event apparel, and tech products for individuals and organizations that mean business.",
   },
 ];

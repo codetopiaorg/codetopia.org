@@ -1,8 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Footer } from "@/components/sections/Footer";
+import { LogoBg } from "@/components/ui/LogoBg";
+import { Reveal } from "@/components/ui/Reveal";
 import { initiatives } from "@/lib/initiatives";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Initiatives | Codetopia",
@@ -10,153 +14,162 @@ export const metadata: Metadata = {
     "Each Codetopia initiative is purpose-built to close a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
 };
 
-const numberWords = [
-  "Zero",
-  "One",
-  "Two",
-  "Three",
-  "Four",
-  "Five",
-  "Six",
-  "Seven",
-  "Eight",
-  "Nine",
-  "Ten",
-];
-
 export default function InitiativesPage() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-[#080808]">
       {/* Hero */}
-      <section className="pt-40 pb-24 md:pt-52 md:pb-36 px-6 border-b border-zinc-900">
-        <div className="max-w-7xl mx-auto space-y-8">
-          <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
-            The Initiatives
+      <section className="relative pt-40 pb-24 md:pt-52 md:pb-36 px-6 md:px-12 border-b border-white/[0.07] overflow-hidden">
+        <div className="absolute inset-0 glow-top pointer-events-none" />
+        <LogoBg invert opacity={0.06} />
+        <div className="relative max-w-7xl mx-auto space-y-8">
+          <p className="font-sans text-xs text-zinc-700 tracking-[0.4em] uppercase">
+            {initiatives.filter((i) => i.status === "Active").length} Active ·{" "}
+            {initiatives.filter((i) => i.status !== "Active").length} In
+            Development
           </p>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-black tracking-tighter leading-[0.9] text-white max-w-4xl">
-            {numberWords[initiatives.length] ?? initiatives.length} fronts.
+            What we&apos;re
             <br />
-            One mission.
+            building.
           </h1>
-          <p className="text-zinc-500 font-sans leading-relaxed max-w-xl text-base md:text-lg pt-2">
-            Each Codetopia initiative is purpose-built to close a specific gap
-            in the technology ecosystem. Independent in identity, unified in
-            direction.
+          <p className="text-zinc-500 leading-relaxed max-w-sm text-sm">
+            Each initiative is purpose-built to close a specific gap in the
+            technology ecosystem. Independent in identity, unified in direction.
           </p>
         </div>
       </section>
 
-      {/* Initiative list */}
-      <section className="py-20 md:py-32 px-6 bg-zinc-950">
-        <div className="max-w-7xl mx-auto divide-y divide-zinc-900">
-          {initiatives.map((initiative, index) => (
-            <div
-              key={initiative.name}
-              className="py-14 md:py-20 grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-10 md:gap-20 items-start group"
-            >
-              {/* Left */}
-              <div className="space-y-5">
-                <div className="flex items-center gap-4">
-                  <initiative.icon
-                    size={18}
-                    strokeWidth={1.5}
-                    className="text-zinc-600"
-                  />
-                  <span className="text-[9px] font-black uppercase tracking-widest text-zinc-800">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <Image
-                  src={initiative.logo}
-                  alt={initiative.name}
-                  height={28}
-                  className="h-7 w-auto object-contain brightness-0 invert opacity-70"
-                />
-                <h2 className="text-2xl sm:text-3xl font-black tracking-tighter text-white">
-                  {initiative.name}
-                </h2>
-                <span
-                  className={`inline-block text-[9px] font-black uppercase tracking-widest px-3 py-1.5 ${
-                    initiative.status === "Active"
-                      ? "bg-white text-black"
-                      : "bg-zinc-900 text-zinc-600 border border-zinc-800"
-                  }`}
-                >
-                  {initiative.status}
-                </span>
-              </div>
+      {/* Cards */}
+      <section className="py-20 md:py-28 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            {initiatives.map((initiative, i) => {
+              const isActive = !!initiative.link;
 
-              {/* Right */}
-              <div className="space-y-6">
-                <p className="text-zinc-400 font-sans leading-relaxed text-base md:text-lg">
-                  {initiative.description}
-                </p>
-                <InitiativeAction initiative={initiative} />
-              </div>
-            </div>
-          ))}
+              const card = (
+                <div
+                  className={cn(
+                    "group relative flex flex-col p-8 md:p-10 border transition-all duration-300 overflow-hidden h-full",
+                    isActive
+                      ? "border-white/[0.08] hover:border-white/[0.22] cursor-pointer"
+                      : "border-white/[0.04] opacity-40 pointer-events-none"
+                  )}
+                >
+                  {/* Hover glow */}
+                  {isActive && (
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                      style={{
+                        background:
+                          "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.05), transparent)",
+                      }}
+                    />
+                  )}
+
+                  {/* Top: logo + status */}
+                  <div className="relative flex items-start justify-between mb-10">
+                    <div className="flex items-center gap-3">
+                      <initiative.icon size={16} className={cn("text-zinc-500 shrink-0", !isActive && "opacity-30")} />
+                      <Image
+                        src={initiative.logo}
+                        alt={initiative.name}
+                        height={22}
+                        className={cn(
+                          "h-[22px] w-auto object-contain brightness-0 invert",
+                          !isActive && "opacity-30"
+                        )}
+                      />
+                    </div>
+                    {initiative.status === "Active" ? (
+                      <span className="flex items-center gap-1.5 font-sans text-xs text-zinc-400 shrink-0">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
+                        Active
+                      </span>
+                    ) : (
+                      <span className="font-sans text-xs text-zinc-700 shrink-0">
+                        Coming Soon
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Description */}
+                  <p className="relative text-sm text-zinc-500 leading-relaxed flex-1">
+                    {initiative.description}
+                  </p>
+
+                  {/* Footer */}
+                  <div className="relative mt-10 flex items-center justify-between">
+                    <span className="font-sans text-xs text-zinc-800 tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {isActive && (
+                      <span className="flex items-center gap-1.5 text-xs text-zinc-700 group-hover:text-white transition-colors duration-200">
+                        Visit site
+                        <ArrowRight
+                          size={11}
+                          className="group-hover:translate-x-0.5 transition-transform duration-200"
+                        />
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+
+              return (
+                <Reveal key={initiative.name} delay={i * 55} className="h-full">
+                  {isActive ? (
+                    <a
+                      href={initiative.link!}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-full"
+                    >
+                      {card}
+                    </a>
+                  ) : (
+                    card
+                  )}
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 md:py-32 px-6 bg-black border-t border-zinc-900">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-end justify-between gap-10">
-          <div className="space-y-4 max-w-xl">
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
-              Stay Updated
-            </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-[0.95] text-white">
-              More initiatives
-              <br />
-              are on the way.
-            </h2>
-            <p className="text-zinc-500 font-sans leading-relaxed">
-              Studio, Labs, Foundation, and Academy are all in development.
-              Subscribe to The Dispatch to know when each one launches.
-            </p>
+      <section className="relative py-28 md:py-44 px-6 md:px-12 border-t border-white/[0.07] overflow-hidden">
+        <div className="absolute inset-0 glow-top pointer-events-none" />
+        <Reveal>
+          <div className="relative max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-end justify-between gap-12">
+            <div className="space-y-6 max-w-xl">
+              <p className="font-sans text-xs text-zinc-700 tracking-[0.4em] uppercase">
+                More coming
+              </p>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-[0.9] text-white">
+                More initiatives
+                <br />
+                are on the way.
+              </h2>
+              <p className="text-zinc-500 leading-relaxed text-sm">
+                More are in development. Subscribe to The Dispatch to be the
+                first to know when each one launches.
+              </p>
+            </div>
+            <Link
+              href="/#dispatch"
+              className="inline-flex items-center gap-2.5 text-[10px] font-black uppercase tracking-[0.3em] text-black bg-white px-8 py-5 hover:bg-zinc-100 transition-colors shrink-0 group"
+            >
+              Subscribe to The Dispatch
+              <ArrowRight
+                size={11}
+                className="group-hover:translate-x-0.5 transition-transform"
+              />
+            </Link>
           </div>
-          <a
-            href="/#dispatch"
-            className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-black bg-white px-6 py-4 hover:bg-zinc-100 transition-colors shrink-0"
-          >
-            Subscribe to The Dispatch
-          </a>
-        </div>
+        </Reveal>
       </section>
 
       <Footer />
     </main>
-  );
-}
-
-function InitiativeAction({
-  initiative,
-}: {
-  initiative: (typeof initiatives)[number];
-}) {
-  if (initiative.link) {
-    return (
-      <a
-        href={initiative.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-white border border-zinc-800 px-5 py-3 hover:border-zinc-600 transition-colors group"
-      >
-        Visit {initiative.shortName}
-        <ArrowRight
-          size={12}
-          className="group-hover:translate-x-0.5 transition-transform"
-        />
-      </a>
-    );
-  }
-
-  return (
-    <a
-      href="/#dispatch"
-      className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-600 hover:text-white transition-colors"
-    >
-      Get notified when it launches
-    </a>
   );
 }

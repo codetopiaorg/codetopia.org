@@ -1,102 +1,83 @@
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
+import Link from "next/link";
+import { Reveal } from "@/components/ui/Reveal";
 import { initiatives } from "@/lib/initiatives";
-import { cn } from "@/lib/utils";
 
 export const EntitySpotlight = () => {
+  const active = initiatives.filter((i) => i.status === "Active");
+  const upcoming = initiatives.filter((i) => i.status !== "Active");
+
   return (
     <section
       id="initiatives"
-      className="py-20 md:py-32 px-6 bg-black border-t border-zinc-900"
+      className="relative py-32 md:py-56 px-6 md:px-12 border-t border-white/[0.07] overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-10 md:mb-14 space-y-3">
-          <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-600">
-            The Initiatives
+      <div className="absolute inset-0 glow-top pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
+        {/* Left */}
+        <Reveal>
+          <p className="font-sans text-xs text-zinc-700 tracking-[0.4em] uppercase mb-6">
+            Our Work
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-white">
+          <h2 className="text-[clamp(40px,5.5vw,88px)] font-black tracking-tighter text-white leading-[0.88] mb-10">
             One organization.
-            <br className="sm:hidden" /> Many fronts.
+            <br />
+            Many fronts.
           </h2>
-        </div>
+          <Link
+            href="/initiatives"
+            className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] bg-white text-black px-7 py-4 hover:bg-zinc-100 transition-colors group"
+          >
+            Explore all initiatives
+            <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+        </Reveal>
 
-        <div className="divide-y divide-zinc-900">
-          {initiatives.map((initiative) => (
-            <div key={initiative.name} className="py-10 md:py-12 space-y-4">
-              {/* Line 1: icon + logo */}
-              <div className="flex items-center gap-3">
-                <initiative.icon
-                  size={20}
-                  strokeWidth={1.5}
-                  className={cn(
-                    initiative.link ? "text-zinc-400" : "text-zinc-700",
-                  )}
-                />
-                <Image
-                  src={initiative.logo}
-                  alt={initiative.name}
-                  height={24}
-                  className={cn(
-                    "h-6 w-auto object-contain brightness-0 invert",
-                    !initiative.link && "opacity-25",
-                  )}
-                />
-              </div>
-
-              {/* Line 2: name + status */}
-              <div className="flex items-center gap-3">
-                <p
-                  className={cn(
-                    "text-base font-black tracking-tight font-display",
-                    initiative.link ? "text-white" : "text-zinc-600",
-                  )}
-                >
-                  {initiative.name}
-                </p>
-                <span
-                  className={cn(
-                    "text-xs font-black uppercase tracking-widest px-2 py-1",
-                    initiative.link
-                      ? "bg-white text-black"
-                      : "border border-zinc-800 text-zinc-700",
-                  )}
-                >
-                  {initiative.status}
-                </span>
-              </div>
-
-              {/* Line 3: description */}
-              <p className="text-zinc-500 font-sans text-base leading-relaxed max-w-2xl">
-                {initiative.description}
+        {/* Right */}
+        <Reveal delay={120} className="lg:pt-16">
+          <div className="space-y-8">
+            <div>
+              <p className="font-sans text-xs text-zinc-700 tracking-[0.4em] uppercase mb-4">
+                Active
               </p>
-
-              {/* Line 4: action */}
-              <div>
-                {initiative.link ? (
+              <div className="space-y-3">
+                {active.map((initiative) => (
                   <a
-                    href={initiative.link}
+                    key={initiative.name}
+                    href={initiative.link!}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-white hover:text-zinc-300 transition-colors no-underline group"
+                    className="group flex items-center justify-between py-2 text-white hover:text-zinc-300 transition-colors"
                   >
-                    Visit
-                    <ArrowRight
-                      size={10}
-                      className="group-hover:translate-x-0.5 transition-transform"
-                    />
+                    <span className="flex items-center gap-2.5 text-sm font-medium">
+                      <initiative.icon size={14} className="text-zinc-500 group-hover:text-zinc-300 transition-colors" />
+                      {initiative.shortName}
+                    </span>
+                    <ArrowRight size={12} className="text-zinc-700 group-hover:text-zinc-400 group-hover:translate-x-0.5 transition-all" />
                   </a>
-                ) : (
-                  <a
-                    href="#dispatch"
-                    className="text-xs font-black uppercase tracking-widest text-zinc-700 hover:text-zinc-400 transition-colors no-underline"
-                  >
-                    Notify me
-                  </a>
-                )}
+                ))}
               </div>
             </div>
-          ))}
-        </div>
+
+            <div>
+              <p className="font-sans text-xs text-zinc-700 tracking-[0.4em] uppercase mb-4">
+                In Development
+              </p>
+              <div className="space-y-3">
+                {upcoming.map((initiative) => (
+                  <div key={initiative.name} className="flex items-center justify-between py-2">
+                    <span className="flex items-center gap-2.5 text-sm text-zinc-600">
+                      <initiative.icon size={14} className="text-zinc-700" />
+                      {initiative.shortName}
+                    </span>
+                    <span className="font-sans text-xs text-zinc-700">Soon</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
