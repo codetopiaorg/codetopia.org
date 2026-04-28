@@ -30,7 +30,10 @@ export const EntitySpotlight = () => {
             className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] bg-white text-black px-7 py-4 hover:bg-zinc-100 transition-colors group"
           >
             Explore all initiatives
-            <ArrowRight size={11} className="group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight
+              size={11}
+              className="group-hover:translate-x-0.5 transition-transform"
+            />
           </Link>
         </Reveal>
 
@@ -45,16 +48,22 @@ export const EntitySpotlight = () => {
                 {active.map((initiative) => (
                   <a
                     key={initiative.name}
-                    href={initiative.link!}
+                    href={initiative.link ?? "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center justify-between py-2 text-white hover:text-zinc-300 transition-colors"
                   >
                     <span className="flex items-center gap-2.5 text-sm font-medium">
-                      <initiative.icon size={14} className="text-zinc-500 group-hover:text-zinc-300 transition-colors" />
+                      <initiative.icon
+                        size={14}
+                        className="text-zinc-500 group-hover:text-zinc-300 transition-colors"
+                      />
                       {initiative.shortName}
                     </span>
-                    <ArrowRight size={12} className="text-zinc-700 group-hover:text-zinc-400 group-hover:translate-x-0.5 transition-all" />
+                    <ArrowRight
+                      size={12}
+                      className="text-zinc-700 group-hover:text-zinc-400 group-hover:translate-x-0.5 transition-all"
+                    />
                   </a>
                 ))}
               </div>
@@ -66,12 +75,17 @@ export const EntitySpotlight = () => {
               </p>
               <div className="space-y-3">
                 {upcoming.map((initiative) => (
-                  <div key={initiative.name} className="flex items-center justify-between py-2">
+                  <div
+                    key={initiative.name}
+                    className="flex items-center justify-between py-2"
+                  >
                     <span className="flex items-center gap-2.5 text-sm text-zinc-600">
                       <initiative.icon size={14} className="text-zinc-700" />
                       {initiative.shortName}
                     </span>
-                    <span className="font-sans text-xs text-zinc-700">Soon</span>
+                    <span className="font-sans text-xs text-zinc-700">
+                      Soon
+                    </span>
                   </div>
                 ))}
               </div>

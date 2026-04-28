@@ -3,7 +3,14 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
-const NAMES = ["COMMUNITY", "STUDIO", "LABS", "FOUNDATION", "ACADEMY", "MARKET"];
+const NAMES = [
+  "COMMUNITY",
+  "STUDIOS",
+  "LABS",
+  "FOUNDATION",
+  "ACADEMY",
+  "MARKET",
+];
 
 type Phase = "visible" | "exiting" | "entering";
 
@@ -39,9 +46,19 @@ export const TextCycler = ({ className }: Props) => {
 
   const style: React.CSSProperties =
     phase === "visible"
-      ? { transform: "translateY(0)", opacity: 1, transition: "transform 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease" }
+      ? {
+          transform: "translateY(0)",
+          opacity: 1,
+          transition:
+            "transform 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.4s ease",
+        }
       : phase === "exiting"
-        ? { transform: "translateY(-32px)", opacity: 0, transition: "transform 0.4s cubic-bezier(0.4,0,1,1), opacity 0.3s ease" }
+        ? {
+            transform: "translateY(-32px)",
+            opacity: 0,
+            transition:
+              "transform 0.4s cubic-bezier(0.4,0,1,1), opacity 0.3s ease",
+          }
         : { transform: "translateY(32px)", opacity: 0, transition: "none" };
 
   return (

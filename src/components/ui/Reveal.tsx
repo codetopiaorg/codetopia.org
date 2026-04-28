@@ -29,7 +29,7 @@ export const Reveal = ({
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -48px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -48px 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -49,7 +49,7 @@ export const Reveal = ({
       className={cn(
         "transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
         inView ? "opacity-100 translate-x-0 translate-y-0" : hidden,
-        className
+        className,
       )}
     >
       {children}

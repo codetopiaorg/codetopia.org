@@ -14,8 +14,8 @@ import {
   FaXTwitter,
   FaYoutube,
 } from "react-icons/fa6";
-import { Reveal } from "@/components/ui/Reveal";
 import logo from "@/assets/images/logos/Codetopia-Logo-TW.png";
+import { Reveal } from "@/components/ui/Reveal";
 
 const socials = [
   { label: "X", icon: FaXTwitter, href: "https://x.com/codetopiaorg" },

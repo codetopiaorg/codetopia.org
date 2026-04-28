@@ -11,8 +11,14 @@ const logos = [academy, community, foundation, labs, market, studios];
 export const Ticker = () => (
   <div className="bg-[#080808] py-10 px-6 md:px-12">
     <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
-      {logos.map((src, i) => (
-        <Image key={i} src={src} alt="" height={28} className="h-7 w-auto object-contain opacity-40 hover:opacity-100 transition-opacity duration-300" />
+      {logos.map((src) => (
+        <Image
+          key={src.src}
+          src={src}
+          alt=""
+          height={28}
+          className="h-7 w-auto object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
+        />
       ))}
     </div>
   </div>

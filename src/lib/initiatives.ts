@@ -40,8 +40,8 @@ export const initiatives: Initiative[] = [
       "A mentorship-driven hub where technologists collaborate on real-world projects, advance from ideas to execution, and grow into leaders.",
   },
   {
-    name: "Codetopia Studio",
-    shortName: "Studio",
+    name: "Codetopia Studios",
+    shortName: "Studios",
     icon: Clapperboard,
     logo: studioLogo,
     status: "Coming Soon",

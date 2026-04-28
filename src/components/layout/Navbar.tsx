@@ -29,15 +29,17 @@ export const Navbar = () => {
     setScrolledPastHero(window.scrollY > window.innerHeight - 80);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+  }, []);
 
   useEffect(() => {
     setMenuOpen(false);
-  }, [pathname]);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   const isActive = (href: string) => pathname === href;
@@ -52,9 +54,11 @@ export const Navbar = () => {
         } backdrop-blur-md`}
       >
         <div className="max-w-7xl mx-auto h-16 md:h-[68px] flex items-center justify-between gap-8">
-
           {/* Logo */}
-          <Link href="/" className="shrink-0 opacity-90 hover:opacity-100 transition-opacity">
+          <Link
+            href="/"
+            className="shrink-0 opacity-90 hover:opacity-100 transition-opacity"
+          >
             <Image
               src={logo}
               alt="Codetopia"
@@ -75,7 +79,9 @@ export const Navbar = () => {
                 href={link.href}
                 className={`relative px-4 py-2 text-[11px] font-medium uppercase tracking-[0.25em] transition-colors rounded-sm ${
                   isActive(link.href)
-                    ? isWhite ? "text-black" : "text-white"
+                    ? isWhite
+                      ? "text-black"
+                      : "text-white"
                     : isWhite
                       ? "text-zinc-400 hover:text-black"
                       : "text-zinc-500 hover:text-white"
@@ -83,12 +89,16 @@ export const Navbar = () => {
               >
                 {link.name}
                 {isActive(link.href) && (
-                  <span className={`absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full ${isWhite ? "bg-black" : "bg-white"}`} />
+                  <span
+                    className={`absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full ${isWhite ? "bg-black" : "bg-white"}`}
+                  />
                 )}
               </Link>
             ))}
 
-            <div className={`w-px h-4 mx-3 ${isWhite ? "bg-zinc-200" : "bg-white/[0.1]"}`} />
+            <div
+              className={`w-px h-4 mx-3 ${isWhite ? "bg-zinc-200" : "bg-white/[0.1]"}`}
+            />
 
             <Link
               href="/#contact"
@@ -108,10 +118,18 @@ export const Navbar = () => {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
             className={`md:hidden p-1.5 transition-colors ${
-              menuOpen ? "text-zinc-400" : isWhite ? "text-zinc-500 hover:text-black" : "text-zinc-500 hover:text-white"
+              menuOpen
+                ? "text-zinc-400"
+                : isWhite
+                  ? "text-zinc-500 hover:text-black"
+                  : "text-zinc-500 hover:text-white"
             }`}
           >
-            {menuOpen ? <X size={18} strokeWidth={2} /> : <Menu size={18} strokeWidth={2} />}
+            {menuOpen ? (
+              <X size={18} strokeWidth={2} />
+            ) : (
+              <Menu size={18} strokeWidth={2} />
+            )}
           </button>
         </div>
       </nav>
@@ -119,34 +137,42 @@ export const Navbar = () => {
       {/* Mobile menu */}
       <div
         className={`fixed inset-0 z-40 bg-[#080808] flex flex-col transition-all duration-300 md:hidden ${
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="flex flex-col justify-between flex-1 px-6 pt-24 pb-12">
           <div className="flex flex-col">
-            {[...navLinks, { name: "Contact", href: "/#contact" }].map((link, i) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="group flex items-end justify-between py-7 border-b border-white/[0.07]"
-              >
-                <span
-                  className={`text-[clamp(36px,9vw,52px)] font-normal tracking-tight leading-none transition-colors ${
-                    isActive(link.href) ? "text-white" : "text-zinc-600 group-hover:text-white"
-                  }`}
+            {[...navLinks, { name: "Contact", href: "/#contact" }].map(
+              (link, i) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="group flex items-end justify-between py-7 border-b border-white/[0.07]"
                 >
-                  {link.name}
-                </span>
-                <span className="font-sans text-sm text-zinc-600 mb-1">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </Link>
-            ))}
+                  <span
+                    className={`text-[clamp(36px,9vw,52px)] font-normal tracking-tight leading-none transition-colors ${
+                      isActive(link.href)
+                        ? "text-white"
+                        : "text-zinc-600 group-hover:text-white"
+                    }`}
+                  >
+                    {link.name}
+                  </span>
+                  <span className="font-sans text-sm text-zinc-600 mb-1">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </Link>
+              ),
+            )}
           </div>
 
           <div className="space-y-1.5">
-            <p className="font-sans text-[9px] text-zinc-700 tracking-[0.35em] uppercase">Contact</p>
+            <p className="font-sans text-[9px] text-zinc-700 tracking-[0.35em] uppercase">
+              Contact
+            </p>
             <p className="text-sm text-zinc-500">hello@codetopia.org</p>
           </div>
         </div>
