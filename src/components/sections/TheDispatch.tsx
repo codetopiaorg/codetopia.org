@@ -1,8 +1,9 @@
 "use client";
 
 import { ArrowRight, Check } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
-import { Reveal } from "@/components/ui/Reveal";
+import talkPhoto from "@/assets/images/photos/techx-ghana-talk.jpg";
 
 export const TheDispatch = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +22,11 @@ export const TheDispatch = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-      if (!res.ok) throw new Error("Failed to subscribe");
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        setError(data?.error ?? "Something went wrong. Please try again.");
+        return;
+      }
       setSubmitted(true);
     } catch {
       setError("Something went wrong. Please try again.");
@@ -33,83 +38,85 @@ export const TheDispatch = () => {
   return (
     <section
       id="dispatch"
-      className="relative bg-[#080808] border-t border-white/[0.07] overflow-hidden"
+      className="bg-[#080808] px-6 md:px-12 py-24 md:py-32 scroll-mt-16"
     >
-      <div className="absolute inset-0 glow-top pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-32 md:py-52">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-32 items-start">
-          <Reveal>
-            <div className="space-y-6">
-              <p className="font-sans text-xs text-zinc-700 tracking-[0.4em] uppercase">
-                The Dispatch
-              </p>
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.85] text-white">
-                Stay
-                <br />
-                in the
-                <br />
-                loop.
-              </h2>
-              <p className="text-zinc-500 leading-relaxed max-w-xs">
-                Initiative launches, milestones, and updates from across the
-                Codetopia ecosystem, delivered directly to you.
-              </p>
-            </div>
-          </Reveal>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="lg:col-span-5 flex flex-col">
+          <p className="text-sm text-zinc-500 mb-8">The Dispatch</p>
+          <h2 className="font-display font-medium text-[clamp(36px,4.5vw,64px)] leading-[0.98] tracking-[-0.04em] text-white">
+            News from across the ecosystem.
+          </h2>
+          <p className="mt-6 max-w-md text-zinc-400 leading-relaxed">
+            Initiative launches, milestones and updates, sent when there&apos;s
+            something worth saying.
+          </p>
 
-          <Reveal delay={120} className="lg:pt-14">
+          <div className="mt-12 lg:mt-auto lg:pt-12">
             {submitted ? (
-              <div className="space-y-6">
-                <div className="w-12 h-12 bg-white flex items-center justify-center">
-                  <Check size={18} className="text-black" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-black tracking-tight text-white">
+              <div className="flex items-start gap-4 pt-6">
+                <Check size={18} className="mt-1 text-white shrink-0" />
+                <div>
+                  <h3 className="text-lg font-medium text-white">
                     You&apos;re in.
                   </h3>
-                  <p className="text-sm text-zinc-500">
-                    We&apos;ll reach out when there&apos;s something worth
-                    saying.
+                  <p className="mt-1 text-sm text-zinc-500">
+                    We&apos;ll write when there&apos;s news.
                   </p>
                 </div>
               </div>
             ) : (
-              <form className="space-y-4" onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <label
                   htmlFor="dispatch-email"
-                  className="block font-sans text-xs text-zinc-600 tracking-[0.3em] uppercase mb-4"
+                  className="block text-sm text-zinc-500 mb-3"
                 >
-                  Your email address
+                  Email address
                 </label>
-                <input
-                  id="dispatch-email"
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@example.com"
-                  className="w-full bg-transparent border border-white/[0.1] px-5 py-4 text-sm text-white placeholder:text-zinc-700 focus:border-white/[0.3] transition-colors outline-none"
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="inline-flex items-center gap-2.5 h-12 px-8 bg-white text-black text-[10px] font-black uppercase tracking-[0.3em] hover:bg-zinc-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed group"
-                >
-                  {loading ? "Subscribing..." : "Subscribe"}
-                  {!loading && (
-                    <ArrowRight
-                      size={11}
-                      className="group-hover:translate-x-0.5 transition-transform"
-                    />
-                  )}
-                </button>
-                {error && (
-                  <p className="font-sans text-xs text-red-500">{error}</p>
-                )}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    id="dispatch-email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    className="w-full sm:flex-1 min-w-0 h-12 bg-transparent border-b border-white/25 text-base text-white placeholder:text-zinc-700 focus:border-white transition-colors outline-none"
+                  />
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="group inline-flex items-center justify-center gap-2 h-12 px-6 bg-white text-black text-sm font-medium hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {loading ? "Subscribing..." : "Subscribe"}
+                    {!loading && (
+                      <ArrowRight
+                        size={15}
+                        className="group-hover:translate-x-0.5 transition-transform"
+                      />
+                    )}
+                  </button>
+                </div>
+                {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
               </form>
             )}
-          </Reveal>
+          </div>
         </div>
+
+        <figure className="lg:col-span-7">
+          <div className="relative aspect-[3/2] overflow-hidden bg-zinc-900">
+            <Image
+              src={talkPhoto}
+              alt="A Codetopia member speaking at IEEE CS SYP TechX Ghana"
+              fill
+              placeholder="blur"
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              className="object-cover object-[60%_50%]"
+            />
+          </div>
+          <figcaption className="pt-3 text-xs text-zinc-500">
+            Speaking at IEEE CS SYP TechX Ghana
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

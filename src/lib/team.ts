@@ -159,3 +159,9 @@ export const team: TeamMember[] = [
     ],
   },
 ];
+
+// Profile pages stay offline until the entries above are real people with real
+// photos and bios. Flip to true to publish /about/[slug] again.
+export const teamPublished = false;
+
+export const publishedTeam = teamPublished ? team : [];
