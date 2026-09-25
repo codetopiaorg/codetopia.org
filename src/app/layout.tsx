@@ -17,11 +17,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://codetopia.tech"),
   title: {
-    default: "Codetopia | The Technology Ecosystem",
+    default: "Codetopia",
     template: "%s | Codetopia",
   },
   description:
-    "Codetopia is the organization behind a growing network of technology initiatives developing talent, producing content, driving innovation, and creating social impact across Ghana, Africa and beyond.",
+    "We build the organizations that build the future. Codetopia is the parent organization of a growing network of technology initiatives developing talent, producing content, driving innovation and creating social impact across Ghana, Africa and beyond.",
   keywords: [
     "Codetopia",
     "technology ecosystem",
@@ -36,9 +36,8 @@ export const metadata: Metadata = {
   creator: "Codetopia",
   publisher: "Codetopia",
   openGraph: {
-    title: "Codetopia | The Technology Ecosystem",
-    description:
-      "The organization behind Africa's growing technology ecosystem.",
+    title: "Codetopia",
+    description: "We build the organizations that build the future.",
     url: "https://codetopia.tech",
     siteName: "Codetopia",
     images: [
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Codetopia - The Technology Ecosystem",
+        alt: "Codetopia",
       },
     ],
     locale: "en_US",
@@ -54,9 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Codetopia | The Technology Ecosystem",
-    description:
-      "The organization behind Africa's growing technology ecosystem.",
+    title: "Codetopia",
+    description: "We build the organizations that build the future.",
     images: ["/og.png"],
   },
   robots: {

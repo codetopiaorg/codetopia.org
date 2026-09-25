@@ -11,17 +11,17 @@ import {
 } from "react-icons/fa6";
 import { Footer } from "@/components/sections/Footer";
 import type { SocialHandle } from "@/lib/team";
-import { team } from "@/lib/team";
+import { publishedTeam } from "@/lib/team";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return team.map((member) => ({ slug: member.slug }));
+  return publishedTeam.map((member) => ({ slug: member.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const member = team.find((m) => m.slug === slug);
+  const member = publishedTeam.find((m) => m.slug === slug);
   if (!member) return {};
   return {
     title: `${member.name} | Codetopia`,
@@ -62,7 +62,7 @@ const socialIcon = (platform: SocialHandle["platform"]) => {
 
 export default async function MemberPage({ params }: Props) {
   const { slug } = await params;
-  const member = team.find((m) => m.slug === slug);
+  const member = publishedTeam.find((m) => m.slug === slug);
   if (!member) notFound();
 
   return (
