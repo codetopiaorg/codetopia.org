@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${member.name} | Codetopia`,
       description: member.bio,
-      url: `https://codetopia.tech/about/${slug}`,
+      url: `https://codetopia.org/about/${slug}`,
       siteName: "Codetopia",
       images: [
         {

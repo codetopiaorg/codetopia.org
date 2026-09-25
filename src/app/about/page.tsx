@@ -6,14 +6,14 @@ import { Pillars } from "@/components/sections/Pillars";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "About | Codetopia",
+  title: "About",
   description:
     "Codetopia is building the organizations that build the future of technology in Ghana, Africa, and beyond.",
   openGraph: {
     title: "About | Codetopia",
     description:
       "The talent exists. The platform doesn't. Codetopia builds focused initiatives, each purpose-built to close a specific gap in Africa's technology ecosystem.",
-    url: "https://codetopia.tech/about",
+    url: "https://codetopia.org/about",
     siteName: "Codetopia",
     images: [
       {

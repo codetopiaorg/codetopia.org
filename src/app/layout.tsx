@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://codetopia.tech"),
+  metadataBase: new URL("https://codetopia.org"),
   title: {
     default: "Codetopia",
     template: "%s | Codetopia",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Codetopia",
     description: "We build the organizations that build the future.",
-    url: "https://codetopia.tech",
+    url: "https://codetopia.org",
     siteName: "Codetopia",
     images: [
       {

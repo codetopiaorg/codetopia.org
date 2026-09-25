@@ -20,14 +20,14 @@ const numberWords = [
 ];
 
 export const metadata: Metadata = {
-  title: "Initiatives | Codetopia",
+  title: "Initiatives",
   description:
     "Each Codetopia initiative is purpose-built to close a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
   openGraph: {
     title: "Initiatives | Codetopia",
     description:
       "Each initiative is purpose-built to close a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
-    url: "https://codetopia.tech/initiatives",
+    url: "https://codetopia.org/initiatives",
     siteName: "Codetopia",
     images: [
       {

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Codetopia",
     description: "We build the organizations that build the future.",
-    url: "https://codetopia.tech",
+    url: "https://codetopia.org",
     siteName: "Codetopia",
     images: [
       {
