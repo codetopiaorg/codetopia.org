@@ -85,14 +85,28 @@ export default async function MemberPage({ params }: Props) {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 md:gap-20 items-end">
           {/* Photo */}
           <div className="relative aspect-[3/4] overflow-hidden bg-white/[0.04] w-full max-w-[320px] lg:max-w-none">
-            <Image
-              src={member.photo}
-              alt={member.name}
-              fill
-              className="object-cover grayscale"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            {member.photo ? (
+              <>
+                <Image
+                  src={member.photo}
+                  alt={member.name}
+                  fill
+                  className="object-cover grayscale"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              </>
+            ) : (
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 flex items-center justify-center font-display text-8xl font-medium tracking-[-0.04em] text-white/20 select-none"
+              >
+                {member.name
+                  .split(" ")
+                  .map((part) => part[0])
+                  .join("")}
+              </div>
+            )}
           </div>
 
           {/* Identity */}

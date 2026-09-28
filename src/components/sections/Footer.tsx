@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   FaBluesky,
   FaCheck,
@@ -127,14 +127,57 @@ export const Footer = () => {
         </div>
       </div>
 
-      <p
-        aria-hidden="true"
-        className="font-display pointer-events-none absolute inset-x-0 bottom-0 z-0 text-center leading-none font-bold tracking-tight text-white/10 uppercase select-none"
-        style={{ fontSize: "19vw" }}
-      >
-        Codetopia
-      </p>
+      <RisingWordmark />
     </footer>
+  );
+};
+
+// The giant wordmark rises out of the footer's bottom edge as the page is
+// scrolled to the end, landing in place exactly when the bottom is reached.
+const RisingWordmark = () => {
+  const ref = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    const footer = el?.parentElement;
+    if (!el || !footer) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const rect = footer.getBoundingClientRect();
+      // 0 while the footer's last 60% is still below the fold, 1 at the very bottom.
+      const remaining = rect.bottom - window.innerHeight;
+      const progress = Math.min(
+        1,
+        Math.max(0, 1 - remaining / (rect.height * 0.6)),
+      );
+      el.style.transform = `translateY(${(1 - progress) * 100}%)`;
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  return (
+    <p
+      ref={ref}
+      aria-hidden="true"
+      className="font-display pointer-events-none absolute inset-x-0 bottom-0 z-0 text-center leading-none font-bold tracking-tight text-white/10 uppercase select-none will-change-transform"
+      style={{ fontSize: "19vw" }}
+    >
+      Codetopia
+    </p>
   );
 };
 
