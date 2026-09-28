@@ -2,7 +2,6 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { InitiativeIndex } from "@/components/sections/InitiativeIndex";
 import { SectionHeading } from "@/components/sections/SectionHeading";
-import { initiatives } from "@/lib/initiatives";
 
 export const EntitySpotlight = () => {
   return (
@@ -12,14 +11,7 @@ export const EntitySpotlight = () => {
     >
       <div className="max-w-7xl mx-auto">
         <SectionHeading
-          title={
-            <>
-              Initiatives{" "}
-              <span className="text-zinc-600">
-                ({String(initiatives.length).padStart(2, "0")})
-              </span>
-            </>
-          }
+          title="Initiatives"
         >
           <Link
             href="/initiatives"
