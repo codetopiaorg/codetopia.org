@@ -13,13 +13,12 @@ export type TeamMember = {
   bio: string;
   /** Extended bio shown on the individual profile page */
   fullBio: string[];
-  photo: string | StaticImageData;
+  /** Optional headshot; the profile page falls back to initials without one */
+  photo?: StaticImageData;
   socials: SocialHandle[];
 };
 
-// Replace photo values with per-member imports when available.
-// All members currently share the placeholder image — swap individually as photos come in.
-import profilePlaceholder from "@/assets/images/profile-pics/profile.jpg";
+// Add a `photo` import per member as real headshots come in.
 
 export const team: TeamMember[] = [
   {
@@ -32,7 +31,6 @@ export const team: TeamMember[] = [
       "His approach is methodical. Rather than launching a single product and hoping it covers every gap, he builds focused initiatives — each purpose-built for a specific problem. Community. Content. Innovation. Access. Each gets its own entity, its own identity, and its own operating model.",
       "Codetopia is the result of that thinking. A network of initiatives that are independent enough to go deep, and connected enough to reinforce each other.",
     ],
-    photo: profilePlaceholder,
     socials: [
       {
         platform: "twitter",
@@ -56,7 +54,6 @@ export const team: TeamMember[] = [
       "That means creating the spaces, events, and connections that push technologists further. Online and offline. Beginner and senior. She believes that the strength of a technology ecosystem is measured not just by the individuals inside it, but by how well they are connected to each other.",
       "Under her leadership, Codetopia Community has become the reference point for technology community in Ghana.",
     ],
-    photo: profilePlaceholder,
     socials: [
       {
         platform: "twitter",
@@ -80,7 +77,6 @@ export const team: TeamMember[] = [
       "His work spans every initiative: the infrastructure behind Codetopia Community, the platforms powering future initiatives, and the internal tools that keep the organization running.",
       "He operates with a bias toward building things that last — systems that can carry the organization forward as the network grows.",
     ],
-    photo: profilePlaceholder,
     socials: [
       { platform: "github", url: "https://github.com/", handle: "kwameasante" },
       {
@@ -100,7 +96,6 @@ export const team: TeamMember[] = [
       "She approaches content as infrastructure. It is not decoration. It is how an ecosystem signals its existence, attracts talent, builds credibility, and sustains momentum. Without it, growth happens in silence.",
       "The content gap is real. Ama's job is to close it.",
     ],
-    photo: profilePlaceholder,
     socials: [
       { platform: "twitter", url: "https://twitter.com/", handle: "@amaowusu" },
       {
@@ -120,7 +115,6 @@ export const team: TeamMember[] = [
       "That means scholarships, donations, school outreach programs, and access initiatives designed to remove the barriers that keep people out of the technology ecosystem before they even get started.",
       "His belief is that talent is equally distributed. Opportunity is not. The Foundation exists to correct that imbalance.",
     ],
-    photo: profilePlaceholder,
     socials: [
       {
         platform: "twitter",
@@ -144,7 +138,6 @@ export const team: TeamMember[] = [
       "She is skeptical of surface-level education. The Academy is not about certificates. It is about developing technologists who can build real things, solve real problems, and compete at any level.",
       "The training gap is one of the clearest gaps in the ecosystem. Abena's mandate is to make it disappear.",
     ],
-    photo: profilePlaceholder,
     socials: [
       {
         platform: "twitter",
