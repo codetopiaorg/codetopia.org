@@ -37,7 +37,7 @@ export const initiatives: Initiative[] = [
     status: "Active",
     link: "https://community.codetopia.org",
     description:
-      "An open community where people in tech do real work together. Members grow through reviewed work, and any organisation that wants to work with them is welcome.",
+      "An open community where people in tech do real work together. Members grow through reviewed work, and any organization that wants to work with them is welcome.",
   },
   {
     name: "Codetopia Studios",
@@ -75,7 +75,7 @@ export const initiatives: Initiative[] = [
     icon: GraduationCap,
     logo: academyLogo,
     status: "Coming Soon",
-    link: null,
+    link: "https://academy.codetopia.org",
     description:
       "Teaches people to think, build and solve problems with technology, through small live classes, starting with children.",
   },
