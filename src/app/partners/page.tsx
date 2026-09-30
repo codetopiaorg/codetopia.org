@@ -38,23 +38,6 @@ export const metadata: Metadata = {
 const PARTNER_URL =
   "mailto:hello@codetopia.org?subject=Partnership%20with%20Codetopia";
 
-const reasons = [
-  {
-    title: "One organization, many ways in.",
-    description:
-      "Community, education and outreach, reached through a single conversation.",
-  },
-  {
-    title: "Real people doing real work.",
-    description:
-      "A community of practitioners across every discipline and level of experience.",
-  },
-  {
-    title: "Built in Ghana.",
-    description: "Open to partners across Africa and beyond.",
-  },
-];
-
 // Commissioned projects are left out until Codetopia Labs can deliver them.
 const ways = [
   {
@@ -67,18 +50,18 @@ const ways = [
     title: "Education and institutions",
     description:
       "Universities, schools, hubs and public bodies working with us to develop technology talent.",
-    through: "Academy · Foundation",
+    through: "With the Academy and Foundation",
   },
   {
     title: "Community and events",
     description:
       "Co-host events, run joint programs, or bring your community together with ours.",
-    through: "Community",
+    through: "With the Community",
   },
 ];
 
 const steps = [
-  "Get in touch at hello@codetopia.org.",
+  "Get in touch.",
   "We talk through what you want to achieve.",
   "We bring in the right initiative.",
   "We agree the scope together.",
@@ -92,34 +75,16 @@ export default function PartnersPage() {
         title="Partner with Codetopia."
         intro={
           <p>
-            One point of contact across everything Codetopia does. Tell us what
-            you have in mind, and we&rsquo;ll bring in the right initiative.
+            One organization, many ways in: community, education and outreach,
+            through a single point of contact. Tell us what you have in mind,
+            and we&rsquo;ll bring in the right initiative.
           </p>
         }
         link={{ href: PARTNER_URL, label: "Get in touch" }}
       />
 
-      {/* Why */}
+      {/* What: the ways to partner */}
       <section className="bg-[#080808] px-6 md:px-12 py-24 md:py-32">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading title="Why partner with us." />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
-            {reasons.map((reason) => (
-              <div key={reason.title}>
-                <h3 className="font-display text-2xl md:text-3xl font-medium tracking-[-0.03em] text-white text-balance">
-                  {reason.title}
-                </h3>
-                <p className="mt-4 text-zinc-400 leading-relaxed max-w-sm">
-                  {reason.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ways to partner */}
-      <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
         <div className="max-w-7xl mx-auto">
           <SectionHeading title="Ways to partner." />
           <ol>
@@ -138,7 +103,7 @@ export default function PartnersPage() {
                   <p className="text-sm md:text-base leading-relaxed text-zinc-400">
                     {way.description}
                   </p>
-                  <p className="mt-3 text-xs text-zinc-600">{way.through}</p>
+                  <p className="mt-4 text-sm text-zinc-300">{way.through}</p>
                 </div>
               </li>
             ))}
@@ -146,7 +111,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* Proof, straight after the offer */}
+      {/* Who: proof, straight after the offer */}
       <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
         <div className="max-w-7xl mx-auto">
           <SectionHeading title="Who we work with.">
@@ -159,7 +124,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* What happens next. No timings promised until someone owns replies. */}
+      {/* How: what happens next. No timings promised until someone owns replies. */}
       <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
         <div className="max-w-7xl mx-auto">
           <SectionHeading title="How it starts." />
