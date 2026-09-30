@@ -1,13 +1,12 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import { Footer } from "@/components/sections/Footer";
-import { NextPage } from "@/components/sections/NextPage";
 import { PageHero } from "@/components/sections/PageHero";
 import { PartnerGrid } from "@/components/sections/Partners";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 
 const description =
-  "Sponsorship, institutional partnerships, commissioned projects and community partnerships. One point of contact across everything Codetopia does.";
+  "Sponsorship, education and institutional partnerships, and community partnerships. One point of contact across everything Codetopia does.";
 
 export const metadata: Metadata = {
   title: "Partners",
@@ -41,27 +40,50 @@ const PARTNER_URL =
 
 const COMMUNITY_WORK_WITH_US = "https://community.codetopia.org/work-with-us";
 
+const reasons = [
+  {
+    title: "One organization, many ways in.",
+    description:
+      "Community, education and outreach, reached through a single conversation.",
+  },
+  {
+    title: "Real people doing real work.",
+    description:
+      "A community of practitioners across every discipline and level of experience.",
+  },
+  {
+    title: "Built in Ghana.",
+    description: "Open to partners across Africa and beyond.",
+  },
+];
+
+// Commissioned projects are left out until Codetopia Labs can deliver them.
 const ways = [
   {
     title: "Sponsorship",
     description:
       "Support our events, programs and initiatives, with your support credited wherever it appears.",
+    through: "Across Codetopia",
   },
   {
-    title: "Institutional partnerships",
+    title: "Education and institutions",
     description:
-      "Work with us over time as a university, school, hub or public body developing technology talent. We connect you with the initiative that fits.",
+      "Universities, schools, hubs and public bodies working with us to develop technology talent.",
+    through: "Academy · Foundation",
   },
   {
-    title: "Commissioned projects",
-    description:
-      "Talk to us about technology projects your organization needs delivered.",
-  },
-  {
-    title: "Community partnerships",
+    title: "Community and events",
     description:
       "Co-host events, run joint programs, or bring your community together with ours.",
+    through: "Community",
   },
+];
+
+const steps = [
+  "Get in touch at hello@codetopia.org.",
+  "We talk through what you want to achieve.",
+  "We bring in the right initiative.",
+  "We agree the scope together.",
 ];
 
 export default function PartnersPage() {
@@ -79,7 +101,27 @@ export default function PartnersPage() {
         link={{ href: PARTNER_URL, label: "Get in touch" }}
       />
 
+      {/* Why */}
       <section className="bg-[#080808] px-6 md:px-12 py-24 md:py-32">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeading title="Why partner with us." />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10 border-t border-zinc-900 pt-10">
+            {reasons.map((reason) => (
+              <div key={reason.title}>
+                <h3 className="font-display text-2xl md:text-3xl font-medium tracking-[-0.03em] text-white text-balance">
+                  {reason.title}
+                </h3>
+                <p className="mt-4 text-zinc-400 leading-relaxed max-w-sm">
+                  {reason.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ways to partner */}
+      <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
         <div className="max-w-7xl mx-auto">
           <SectionHeading title="Ways to partner." />
           <ol className="border-t border-zinc-900">
@@ -94,30 +136,76 @@ export default function PartnersPage() {
                 <h3 className="font-display text-2xl md:text-4xl font-medium tracking-[-0.03em] text-white">
                   {way.title}
                 </h3>
-                <p className="col-start-2 md:col-start-auto md:pt-3 text-sm md:text-base leading-relaxed text-zinc-400 max-w-xl">
-                  {way.description}
-                </p>
+                <div className="col-start-2 md:col-start-auto md:pt-3 max-w-xl">
+                  <p className="text-sm md:text-base leading-relaxed text-zinc-400">
+                    {way.description}
+                  </p>
+                  <p className="mt-3 text-xs text-zinc-600">{way.through}</p>
+                </div>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
+      {/* Proof, straight after the offer */}
       <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
         <div className="max-w-7xl mx-auto">
-          <SectionHeading
-            title="Working with our members?"
-            className="mb-0 md:mb-0"
-          >
+          <SectionHeading title="Who we work with.">
             <p className="text-lg text-zinc-400 leading-relaxed">
-              Hiring, sharing a challenge, speaking or hosting a meetup happens
-              directly with Codetopia Community.
+              Organizations we work with across our initiatives, current and
+              past.
+            </p>
+          </SectionHeading>
+          <PartnerGrid />
+        </div>
+      </section>
+
+      {/* What happens next. No timings promised until someone owns replies. */}
+      <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeading title="How it starts." />
+          <ol className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-8 border-t border-zinc-900 pt-10">
+            {steps.map((step, i) => (
+              <li key={step}>
+                <span className="text-sm text-zinc-600 tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="mt-3 text-lg text-white leading-snug max-w-xs">
+                  {step}
+                </p>
+              </li>
+            ))}
+          </ol>
+          <a
+            href={PARTNER_URL}
+            className="group mt-12 inline-flex items-center gap-2 text-sm text-white"
+          >
+            Get in touch
+            <ArrowRight
+              size={14}
+              className="group-hover:translate-x-0.5 transition-transform"
+            />
+          </a>
+        </div>
+      </section>
+
+      {/* Side route for organizations that want the members, not a partnership */}
+      <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
+        <div className="max-w-7xl mx-auto border-t border-zinc-900 pt-10 grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-4">
+          <p className="md:col-span-3 text-sm text-zinc-500">
+            Hiring or working with members?
+          </p>
+          <div className="md:col-span-9">
+            <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl">
+              Posting a role, sharing a challenge, speaking or hosting a meetup
+              happens directly with Codetopia Community.
             </p>
             <a
               href={COMMUNITY_WORK_WITH_US}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-6 inline-flex items-center gap-2 text-sm text-white"
+              className="group mt-5 inline-flex items-center gap-2 text-sm text-white"
             >
               Work with the community
               <ArrowUpRight
@@ -125,26 +213,9 @@ export default function PartnersPage() {
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
               />
             </a>
-          </SectionHeading>
+          </div>
         </div>
       </section>
-
-      <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading title="Who we work with.">
-            <p className="text-lg text-zinc-400 leading-relaxed">
-              Organizations we&rsquo;ve worked with across our initiatives.
-            </p>
-          </SectionHeading>
-          <PartnerGrid />
-        </div>
-      </section>
-
-      <NextPage
-        href="/initiatives"
-        title="Initiatives"
-        description="The parts of Codetopia, and the gap each one exists to close."
-      />
 
       <Footer />
     </main>

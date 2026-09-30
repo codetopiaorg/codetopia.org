@@ -44,7 +44,7 @@ export const Partners = () => {
       <div className="max-w-7xl mx-auto">
         <SectionHeading title="Who we work with.">
           <p className="text-lg text-zinc-400 leading-relaxed">
-            Organizations we&rsquo;ve worked with across our initiatives.
+            Organizations we work with across our initiatives, current and past.
           </p>
           <Link
             href="/partners"
