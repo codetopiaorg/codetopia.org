@@ -37,7 +37,7 @@ export const initiatives: Initiative[] = [
     status: "Active",
     link: "https://community.codetopia.org",
     description:
-      "A mentorship-driven hub where technologists collaborate on real-world projects, advance from ideas to execution, and grow into leaders.",
+      "An open community where people in tech do real work together. Members grow through reviewed work, and any organisation that wants to work with them is welcome.",
   },
   {
     name: "Codetopia Studios",
@@ -77,7 +77,7 @@ export const initiatives: Initiative[] = [
     status: "Coming Soon",
     link: null,
     description:
-      "The education division delivering structured programs, courses, and certifications for the next generation of technologists.",
+      "Teaches people to think, build and solve problems with technology, through small live classes, starting with children.",
   },
   {
     name: "Codetopia Market",
