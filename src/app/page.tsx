@@ -3,6 +3,7 @@ import { EntitySpotlight } from "@/components/sections/EntitySpotlight";
 import { Footer } from "@/components/sections/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Mission } from "@/components/sections/Mission";
+import { Partners } from "@/components/sections/Partners";
 import { TheDispatch } from "@/components/sections/TheDispatch";
 
 export const metadata: Metadata = {
@@ -39,6 +40,7 @@ export default function Home() {
       <Hero />
       <EntitySpotlight />
       <Mission />
+      <Partners />
       <TheDispatch />
       <Footer />
     </main>

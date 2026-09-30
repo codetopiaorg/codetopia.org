@@ -53,6 +53,7 @@ const socials = [
 const footerLinks = [
   { label: "About", href: "/about" },
   { label: "Initiatives", href: "/initiatives" },
+  { label: "Partners", href: "/partners" },
   { label: "The Dispatch", href: "/#dispatch" },
 ];
 
