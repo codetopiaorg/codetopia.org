@@ -1,9 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import Link from "next/link";
+import { Fragment } from "react";
 import { Footer } from "@/components/sections/Footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { PartnerGrid } from "@/components/sections/Partners";
 import { SectionHeading } from "@/components/sections/SectionHeading";
+import { initiatives } from "@/lib/initiatives";
 
 const description =
   "Sponsorship, education and institutional partnerships, and community partnerships. One point of contact across everything Codetopia does.";
@@ -44,21 +47,60 @@ const ways = [
     title: "Sponsorship",
     description:
       "Support our events, programs and initiatives, with your support credited wherever it appears.",
-    through: "Across Codetopia",
+    through: ["All initiatives"],
   },
   {
     title: "Education and institutions",
     description:
       "Universities, schools, hubs and public bodies working with us to develop technology talent.",
-    through: "With the Academy and Foundation",
+    through: ["Academy", "Foundation"],
   },
   {
     title: "Community and events",
     description:
       "Co-host events, run joint programs, or bring your community together with ours.",
-    through: "With the Community",
+    through: ["Community"],
   },
 ];
+
+const linkClass =
+  "text-zinc-300 underline underline-offset-4 decoration-zinc-700 hover:text-white hover:decoration-white transition-colors";
+
+// Names each initiative a way goes through. A live initiative links to its
+// site; one without a site yet shows as plain text, and becomes a link on
+// its own once `initiatives.ts` gives it one.
+const InitiativeLinks = ({ names }: { names: string[] }) => (
+  <p className="mt-4 text-sm text-zinc-500">
+    {names.map((name, i) => {
+      const initiative = initiatives.find((item) => item.shortName === name);
+      let label: React.ReactNode = name;
+      if (name === "All initiatives") {
+        label = (
+          <Link href="/initiatives" className={linkClass}>
+            {name}
+          </Link>
+        );
+      } else if (initiative?.link) {
+        label = (
+          <a
+            href={initiative.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass}
+          >
+            {name}
+          </a>
+        );
+      }
+      return (
+        <Fragment key={name}>
+          {i > 0 && <span className="mx-2 text-zinc-700">|</span>}
+          {label}
+        </Fragment>
+      );
+    })}
+  </p>
+);
 
 const steps = [
   "Get in touch.",
@@ -103,7 +145,7 @@ export default function PartnersPage() {
                   <p className="text-sm md:text-base leading-relaxed text-zinc-400">
                     {way.description}
                   </p>
-                  <p className="mt-4 text-sm text-zinc-300">{way.through}</p>
+                  <InitiativeLinks names={way.through} />
                 </div>
               </li>
             ))}
