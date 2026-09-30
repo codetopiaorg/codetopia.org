@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { Footer } from "@/components/sections/Footer";
 import { PageHero } from "@/components/sections/PageHero";
@@ -37,8 +37,6 @@ export const metadata: Metadata = {
 
 const PARTNER_URL =
   "mailto:hello@codetopia.org?subject=Partnership%20with%20Codetopia";
-
-const COMMUNITY_WORK_WITH_US = "https://community.codetopia.org/work-with-us";
 
 const reasons = [
   {
@@ -187,33 +185,6 @@ export default function PartnersPage() {
               className="group-hover:translate-x-0.5 transition-transform"
             />
           </a>
-        </div>
-      </section>
-
-      {/* Side route for organizations that want the members, not a partnership */}
-      <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
-        <div className="max-w-7xl mx-auto border-t border-zinc-900 pt-10 grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-4">
-          <p className="md:col-span-3 text-sm text-zinc-500">
-            Hiring or working with members?
-          </p>
-          <div className="md:col-span-9">
-            <p className="text-lg text-zinc-300 leading-relaxed max-w-2xl">
-              Posting a role, sharing a challenge, speaking or hosting a meetup
-              happens directly with Codetopia Community.
-            </p>
-            <a
-              href={COMMUNITY_WORK_WITH_US}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group mt-5 inline-flex items-center gap-2 text-sm text-white"
-            >
-              Work with the community
-              <ArrowUpRight
-                size={14}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-              />
-            </a>
-          </div>
         </div>
       </section>
 
