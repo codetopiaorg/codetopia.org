@@ -103,7 +103,7 @@ export default function PartnersPage() {
       <section className="bg-[#080808] px-6 md:px-12 py-24 md:py-32">
         <div className="max-w-7xl mx-auto">
           <SectionHeading title="Why partner with us." />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10 border-t border-zinc-900 pt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
             {reasons.map((reason) => (
               <div key={reason.title}>
                 <h3 className="font-display text-2xl md:text-3xl font-medium tracking-[-0.03em] text-white text-balance">
@@ -122,11 +122,11 @@ export default function PartnersPage() {
       <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
         <div className="max-w-7xl mx-auto">
           <SectionHeading title="Ways to partner." />
-          <ol className="border-t border-zinc-900">
+          <ol>
             {ways.map((way, i) => (
               <li
                 key={way.title}
-                className="grid grid-cols-[2.5rem_1fr] md:grid-cols-[4rem_minmax(0,4fr)_minmax(0,6fr)] gap-x-4 md:gap-x-8 gap-y-2 py-7 md:py-9 border-b border-zinc-900 items-start"
+                className="grid grid-cols-[2.5rem_1fr] md:grid-cols-[4rem_minmax(0,4fr)_minmax(0,6fr)] gap-x-4 md:gap-x-8 gap-y-2 py-7 md:py-9 items-start"
               >
                 <span className="pt-2 md:pt-3 text-sm text-zinc-600 tabular-nums">
                   {String(i + 1).padStart(2, "0")}
@@ -163,7 +163,7 @@ export default function PartnersPage() {
       <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
         <div className="max-w-7xl mx-auto">
           <SectionHeading title="How it starts." />
-          <ol className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-8 border-t border-zinc-900 pt-10">
+          <ol className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-8">
             {steps.map((step, i) => (
               <li key={step}>
                 <span className="text-sm text-zinc-600 tabular-nums">
