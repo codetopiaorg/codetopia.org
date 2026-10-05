@@ -22,11 +22,11 @@ const numberWords = [
 export const metadata: Metadata = {
   title: "Initiatives",
   description:
-    "Each Codetopia initiative is purpose-built to close a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
+    "Each Codetopia initiative is purpose-built to bridge  a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
   openGraph: {
     title: "Initiatives | Codetopia",
     description:
-      "Each initiative is purpose-built to close a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
+      "Each initiative is purpose-built to bridge  a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
     url: "https://codetopia.org/initiatives",
     siteName: "Codetopia",
     images: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Initiatives | Codetopia",
     description:
-      "Each initiative is purpose-built to close a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
+      "Each initiative is purpose-built to bridge  a specific gap in the technology ecosystem. Independent in identity, unified in direction.",
     images: ["/og.png"],
   },
 };
@@ -59,7 +59,7 @@ export default function InitiativesPage() {
         title={`${count} initiatives. One direction.`}
         intro={
           <p>
-            Each initiative is purpose-built to close a specific gap in the
+            Each initiative is purpose-built to bridge  a specific gap in the
             technology ecosystem. Independent in identity, unified in direction.
           </p>
         }

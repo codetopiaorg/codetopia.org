@@ -37,7 +37,7 @@ export const initiatives: Initiative[] = [
     status: "Active",
     link: "https://community.codetopia.org",
     description:
-      "An open community where people in tech do real work together. Members grow through reviewed work, and any organization that wants to work with them is welcome.",
+      "An open community where people in tech do real work together. Members grow through reviewed work, and any organization that wants to work with our members is welcome.",
   },
   {
     name: "Codetopia Studios",
@@ -47,7 +47,7 @@ export const initiatives: Initiative[] = [
     status: "Coming Soon",
     link: null,
     description:
-      "The content and production division creating tutorials, podcasts, and digital media that educate and inspire.",
+      "The content and production division creates tutorials, podcasts, and digital media that educate and inspire.",
   },
   {
     name: "Codetopia Labs",
@@ -77,7 +77,7 @@ export const initiatives: Initiative[] = [
     status: "Coming Soon",
     link: "https://academy.codetopia.org",
     description:
-      "Teaches people to think, build and solve problems with technology, through small live classes, starting with children.",
+      "Teaches people to think, build and solve problems with technology, through  live classes, starting with children.",
   },
   {
     name: "Codetopia Market",

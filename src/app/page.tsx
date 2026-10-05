@@ -9,10 +9,10 @@ import { TheDispatch } from "@/components/sections/TheDispatch";
 export const metadata: Metadata = {
   title: { absolute: "Codetopia" },
   description:
-    "We build the organizations that build the future. Codetopia is the parent organization of a growing network of technology initiatives developing talent, producing content, driving innovation and creating social impact across Ghana, Africa and beyond.",
+    "We build  organizations that build the future. Codetopia is the parent organization of a growing network of technology initiatives developing talent, producing content, driving innovation and creating social impact across Ghana, Africa and beyond.",
   openGraph: {
     title: "Codetopia",
-    description: "We build the organizations that build the future.",
+    description: "We build  organizations that build the future.",
     url: "https://codetopia.org",
     siteName: "Codetopia",
     images: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Codetopia",
-    description: "We build the organizations that build the future.",
+    description: "We build  organizations that build the future.",
     images: ["/og.png"],
   },
 };
