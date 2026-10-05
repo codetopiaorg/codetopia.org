@@ -9,7 +9,7 @@ export const Hero = () => (
         Ghana, Africa and beyond
       </>
     }
-    title="We build the organizations that build the future."
+    title="We build  organizations that build the future."
     intro={
       <p>
         The parent organization of a network of initiatives developing talent,
