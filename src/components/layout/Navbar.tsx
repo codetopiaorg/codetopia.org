@@ -71,7 +71,7 @@ export const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "text-sm transition-colors",
+                  "font-display text-sm font-bold tracking-tight uppercase transition-colors",
                   isActive(link.href)
                     ? "text-white"
                     : "text-zinc-400 hover:text-white",
@@ -82,7 +82,7 @@ export const Navbar = () => {
             ))}
             <Link
               href="#contact"
-              className="text-sm text-white hover:text-zinc-300 transition-colors"
+              className="font-display text-sm font-bold tracking-tight uppercase text-white hover:text-zinc-300 transition-colors"
             >
               Contact
             </Link>
