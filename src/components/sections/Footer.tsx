@@ -67,7 +67,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12">
           <div className="lg:col-span-7">
             <h2 className="font-display font-medium text-[clamp(40px,6vw,88px)] leading-[0.95] tracking-[-0.04em] text-white">
-              Enquiries.
+              Get in touch.
             </h2>
             <p className="mt-6 max-w-md text-zinc-400 leading-relaxed">
               Partnerships, press and institutional matters.
@@ -79,7 +79,7 @@ export const Footer = () => {
 
           <div className="lg:col-span-5 grid grid-cols-2 gap-10 lg:pt-14">
             <div>
-              <p className="text-sm text-zinc-600 mb-5">Site</p>
+              <p className="font-display text-sm font-bold tracking-tight uppercase text-white mb-5">Explore</p>
               <ul className="space-y-3">
                 {footerLinks.map((link) => (
                   <li key={link.label}>
@@ -94,7 +94,7 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <p className="text-sm text-zinc-600 mb-5">Elsewhere</p>
+              <p className="font-display text-sm font-bold tracking-tight uppercase text-white mb-5">Follow</p>
               <ul className="space-y-3">
                 {socials.map((social) => (
                   <li key={social.label}>
