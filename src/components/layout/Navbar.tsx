@@ -129,7 +129,7 @@ export const Navbar = () => {
                   >
                     {link.name}
                   </span>
-                  <span className="font-display text-lg font-medium text-zinc-500 mb-1 tabular-nums">
+                  <span className="font-display text-[clamp(34px,9vw,48px)] font-medium tracking-[-0.03em] leading-none text-zinc-700 tabular-nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </Link>

@@ -16,15 +16,15 @@ export const InitiativeIndex = ({ withDescriptions = false }: Props) => (
       const row = (
         <div
           className={cn(
-            "grid grid-cols-[2.5rem_1fr_auto] gap-x-4 md:gap-x-8 gap-y-2 py-7 md:py-9",
+            "grid grid-cols-[3rem_1fr_auto] gap-x-4 md:gap-x-8 gap-y-2 py-7 md:py-9",
             withDescriptions
-              ? "md:grid-cols-[4rem_minmax(0,4fr)_minmax(0,6fr)_9rem] items-start"
-              : "md:grid-cols-[4rem_1fr_9rem] items-baseline",
+              ? "md:grid-cols-[5.5rem_minmax(0,4fr)_minmax(0,6fr)_9rem] items-start"
+              : "md:grid-cols-[5.5rem_1fr_9rem] items-baseline",
           )}
         >
           <span
             className={cn(
-              "font-display text-base md:text-xl font-medium text-zinc-500 tabular-nums",
+              "font-display text-2xl md:text-4xl font-medium tracking-[-0.03em] text-zinc-600 tabular-nums",
               withDescriptions && "pt-2 md:pt-3.5",
             )}
           >
