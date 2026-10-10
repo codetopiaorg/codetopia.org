@@ -40,6 +40,16 @@ export const initiatives: Initiative[] = [
       "An open community where people in tech do real work together. Members grow through reviewed work, and any organization that wants to work with our members is welcome.",
   },
   {
+    name: "Codetopia Academy",
+    shortName: "Academy",
+    icon: GraduationCap,
+    logo: academyLogo,
+    status: "Active",
+    link: "https://academy.codetopia.org",
+    description:
+      "Teaches people to think, build and solve problems with technology, through live classes.",
+  },
+  {
     name: "Codetopia Studios",
     shortName: "Studios",
     icon: Clapperboard,
@@ -68,16 +78,6 @@ export const initiatives: Initiative[] = [
     link: null,
     description:
       "The social impact arm focused on access and equity: school tours, scholarships, equipment donations, and STEM outreach for underserved communities.",
-  },
-  {
-    name: "Codetopia Academy",
-    shortName: "Academy",
-    icon: GraduationCap,
-    logo: academyLogo,
-    status: "Coming Soon",
-    link: "https://academy.codetopia.org",
-    description:
-      "Teaches people to think, build and solve problems with technology, through  live classes, starting with children.",
   },
   {
     name: "Codetopia Market",
