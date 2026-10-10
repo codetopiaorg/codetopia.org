@@ -74,7 +74,7 @@ export const initiatives: Initiative[] = [
     shortName: "Academy",
     icon: GraduationCap,
     logo: academyLogo,
-    status: "Coming Soon",
+    status: "Active",
     link: "https://academy.codetopia.org",
     description:
       "Teaches people to think, build and solve problems with technology, through  live classes, starting with children.",
