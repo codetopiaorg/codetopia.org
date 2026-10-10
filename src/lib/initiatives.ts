@@ -57,7 +57,7 @@ export const initiatives: Initiative[] = [
     status: "Coming Soon",
     link: null,
     description:
-      "The content and production division creates tutorials, podcasts, and digital media that educate and inspire.",
+      "The content and production division that creates tutorials, podcasts, and digital media that educate and inspire.",
   },
   {
     name: "Codetopia Labs",

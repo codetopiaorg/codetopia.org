@@ -103,7 +103,7 @@ const InitiativeLinks = ({ names }: { names: string[] }) => (
 );
 
 const steps = [
-  "Get in touch.",
+  "Send us an email.",
   "We talk through what you want to achieve.",
   "We bring in the right initiative.",
   "We agree the scope together.",
@@ -119,7 +119,7 @@ export default function PartnersPage() {
           <p>
             One organization, many ways in: community, education and outreach,
             through a single point of contact. Tell us what you have in mind,
-            and we&rsquo;ll bring in the right initiative.
+            and we&apos;ll bring in the right initiative.
           </p>
         }
         link={{ href: PARTNER_URL, label: "Get in touch" }}
