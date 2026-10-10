@@ -77,7 +77,7 @@ export const initiatives: Initiative[] = [
     status: "Active",
     link: "https://academy.codetopia.org",
     description:
-      "Teaches people to think, build and solve problems with technology, through  live classes, starting with children.",
+      "Teaches people to think, build and solve problems with technology, through live classes.",
   },
   {
     name: "Codetopia Market",
