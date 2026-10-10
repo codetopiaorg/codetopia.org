@@ -79,7 +79,7 @@ export const Footer = () => {
 
           <div className="lg:col-span-5 grid grid-cols-2 gap-10 lg:pt-14">
             <div>
-              <p className="text-sm text-zinc-600 mb-5">Explore</p>
+              <p className="font-display text-sm font-bold tracking-tight uppercase text-white mb-5">Explore</p>
               <ul className="space-y-3">
                 {footerLinks.map((link) => (
                   <li key={link.label}>
@@ -94,7 +94,7 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <p className="text-sm text-zinc-600 mb-5">Follow</p>
+              <p className="font-display text-sm font-bold tracking-tight uppercase text-white mb-5">Follow</p>
               <ul className="space-y-3">
                 {socials.map((social) => (
                   <li key={social.label}>
