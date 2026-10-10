@@ -124,12 +124,12 @@ export const Navbar = () => {
                       "font-display text-[clamp(34px,9vw,48px)] font-medium tracking-[-0.03em] leading-none transition-colors",
                       isActive(link.href)
                         ? "text-white"
-                        : "text-zinc-500 group-hover:text-white",
+                        : "text-zinc-300 group-hover:text-white",
                     )}
                   >
                     {link.name}
                   </span>
-                  <span className="text-sm text-zinc-600 mb-1 tabular-nums">
+                  <span className="font-display text-lg font-medium text-zinc-500 mb-1 tabular-nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </Link>

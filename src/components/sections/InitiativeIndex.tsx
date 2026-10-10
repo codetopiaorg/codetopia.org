@@ -24,7 +24,7 @@ export const InitiativeIndex = ({ withDescriptions = false }: Props) => (
         >
           <span
             className={cn(
-              "text-sm text-zinc-600 tabular-nums",
+              "font-display text-base md:text-xl font-medium text-zinc-500 tabular-nums",
               withDescriptions && "pt-2 md:pt-3.5",
             )}
           >
