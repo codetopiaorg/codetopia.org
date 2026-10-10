@@ -110,9 +110,9 @@ export default function AboutPage() {
             {principles.map((principle, i) => (
               <li
                 key={principle.title}
-                className="grid grid-cols-[2.5rem_1fr] md:grid-cols-[4rem_minmax(0,4fr)_minmax(0,6fr)] gap-x-4 md:gap-x-8 gap-y-3 py-8 md:py-10 items-baseline"
+                className="grid grid-cols-[3rem_1fr] md:grid-cols-[4rem_minmax(0,4fr)_minmax(0,6fr)] gap-x-4 md:gap-x-8 gap-y-3 py-8 md:py-10 items-baseline"
               >
-                <span className="text-sm text-zinc-600 tabular-nums">
+                <span className="font-display text-xl md:text-2xl font-medium tracking-[-0.02em] text-zinc-600 tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display text-xl md:text-2xl font-medium tracking-[-0.02em] text-white">

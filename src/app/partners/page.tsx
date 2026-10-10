@@ -133,9 +133,9 @@ export default function PartnersPage() {
             {ways.map((way, i) => (
               <li
                 key={way.title}
-                className="grid grid-cols-[2.5rem_1fr] md:grid-cols-[4rem_minmax(0,4fr)_minmax(0,6fr)] gap-x-4 md:gap-x-8 gap-y-2 py-7 md:py-9 items-start"
+                className="grid grid-cols-[3rem_1fr] md:grid-cols-[5.5rem_minmax(0,4fr)_minmax(0,6fr)] gap-x-4 md:gap-x-8 gap-y-2 py-7 md:py-9 items-start"
               >
-                <span className="pt-2 md:pt-3 text-sm text-zinc-600 tabular-nums">
+                <span className="font-display text-2xl md:text-4xl font-medium tracking-[-0.03em] text-zinc-600 tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display text-2xl md:text-4xl font-medium tracking-[-0.03em] text-white">
@@ -173,7 +173,7 @@ export default function PartnersPage() {
           <ol className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-8">
             {steps.map((step, i) => (
               <li key={step}>
-                <span className="text-sm text-zinc-600 tabular-nums">
+                <span className="font-display text-2xl font-medium tracking-[-0.02em] text-zinc-600 tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-3 text-lg text-white leading-snug max-w-xs">
