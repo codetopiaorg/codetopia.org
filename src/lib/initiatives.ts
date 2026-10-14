@@ -50,6 +50,16 @@ export const initiatives: Initiative[] = [
       "Teaches people to think, build and solve problems with technology, through live classes.",
   },
   {
+    name: "Codetopia Labs",
+    shortName: "Labs",
+    icon: Cpu,
+    logo: labsLogo,
+    status: "Active",
+    link: "https://labs.codetopia.org",
+    description:
+      "The technical division that takes on real-world engineering challenges, builds products, and delivers solutions for organizations.",
+  },
+  {
     name: "Codetopia Studios",
     shortName: "Studios",
     icon: Clapperboard,
@@ -58,16 +68,6 @@ export const initiatives: Initiative[] = [
     link: null,
     description:
       "The content and production division that creates tutorials, podcasts, and digital media that educate and inspire.",
-  },
-  {
-    name: "Codetopia Labs",
-    shortName: "Labs",
-    icon: Cpu,
-    logo: labsLogo,
-    status: "Coming Soon",
-    link: null,
-    description:
-      "The technical division that takes on real-world engineering challenges, builds products, and delivers solutions for organizations.",
   },
   {
     name: "Codetopia Foundation",
