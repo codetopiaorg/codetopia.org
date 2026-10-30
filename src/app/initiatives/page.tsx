@@ -53,7 +53,7 @@ export default function InitiativesPage() {
   const count = numberWords[initiatives.length] ?? initiatives.length;
 
   return (
-    <main className="min-h-screen bg-[#080808]">
+    <main id="main" className="min-h-screen bg-[#080808]">
       <PageHero
         label="Initiatives"
         title={`${count} initiatives. One direction.`}
@@ -67,6 +67,7 @@ export default function InitiativesPage() {
 
       <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
         <div className="max-w-7xl mx-auto">
+          <h2 className="sr-only">All initiatives</h2>
           <InitiativeIndex withDescriptions />
         </div>
       </section>

@@ -94,7 +94,11 @@ const InitiativeLinks = ({ names }: { names: string[] }) => (
       }
       return (
         <Fragment key={name}>
-          {i > 0 && <span className="mx-2 text-zinc-700">|</span>}
+          {i > 0 && (
+            <span aria-hidden="true" className="mx-2 text-zinc-600">
+              |
+            </span>
+          )}
           {label}
         </Fragment>
       );
@@ -111,7 +115,7 @@ const steps = [
 
 export default function PartnersPage() {
   return (
-    <main className="min-h-screen bg-[#080808]">
+    <main id="main" className="min-h-screen bg-[#080808]">
       <PageHero
         label="Partners"
         title="Partner with Codetopia."

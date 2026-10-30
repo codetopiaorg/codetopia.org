@@ -79,7 +79,9 @@ export const Footer = () => {
 
           <div className="lg:col-span-5 grid grid-cols-2 gap-10 lg:pt-14">
             <div>
-              <p className="font-display text-sm font-bold tracking-tight uppercase text-white mb-5">Explore</p>
+              <p className="font-display text-sm font-bold tracking-tight uppercase text-white mb-5">
+                Explore
+              </p>
               <ul className="space-y-3">
                 {footerLinks.map((link) => (
                   <li key={link.label}>
@@ -94,7 +96,9 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <p className="font-display text-sm font-bold tracking-tight uppercase text-white mb-5">Follow</p>
+              <p className="font-display text-sm font-bold tracking-tight uppercase text-white mb-5">
+                Follow
+              </p>
               <ul className="space-y-3">
                 {socials.map((social) => (
                   <li key={social.label}>
@@ -106,6 +110,7 @@ export const Footer = () => {
                     >
                       <social.icon className="w-3.5 h-3.5 text-zinc-600 group-hover:text-white transition-colors" />
                       {social.label}
+                      <span className="sr-only"> (opens in a new tab)</span>
                     </a>
                   </li>
                 ))}
@@ -206,9 +211,9 @@ const CopyEmail = ({ email }: { email: string }) => {
           <FaCopy className="w-3 h-3" />
         )}
       </span>
-      {copied && (
-        <span className="text-xs text-zinc-400 animate-fade-in">Copied</span>
-      )}
+      <output className="text-xs text-zinc-400 animate-fade-in">
+        {copied ? "Copied" : ""}
+      </output>
     </button>
   );
 };

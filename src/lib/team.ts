@@ -50,7 +50,7 @@ export const team: TeamMember[] = [
     role: "Head of Community",
     bio: "Leading Codetopia Community — the initiative building the most connected technology community in Ghana.",
     fullBio: [
-      "Akua leads Codetopia Community, the first and most active initiative in the Codetopia network. Her mandate is simple: close the community gap in Ghana's technology ecosystem.",
+      "Akua leads Codetopia Community, the first and most active initiative in the Codetopia network. Her mandate is simple: bridge the community gap in Ghana's technology ecosystem.",
       "That means creating the spaces, events, and connections that push technologists further. Online and offline. Beginner and senior. She believes that the strength of a technology ecosystem is measured not just by the individuals inside it, but by how well they are connected to each other.",
       "Under her leadership, Codetopia Community has become the reference point for technology community in Ghana.",
     ],
@@ -94,7 +94,7 @@ export const team: TeamMember[] = [
     fullBio: [
       "Ama leads Codetopia's content strategy — the initiative building the media layer for Africa's technology ecosystem. Her work is about documentation and amplification: making the stories, insights, and progress of African technologists visible to the world.",
       "She approaches content as infrastructure. It is not decoration. It is how an ecosystem signals its existence, attracts talent, builds credibility, and sustains momentum. Without it, growth happens in silence.",
-      "The content gap is real. Ama's job is to close it.",
+      "The content gap is real. Ama's job is to bridge it.",
     ],
     socials: [
       { platform: "twitter", url: "https://twitter.com/", handle: "@amaowusu" },
@@ -134,9 +134,9 @@ export const team: TeamMember[] = [
     role: "Head of Academy",
     bio: "Building the structured learning paths and real-world training programs that develop the next generation of African technologists.",
     fullBio: [
-      "Abena leads Codetopia Academy, the initiative built to close the talent development gap. Her work is about creating the structured learning infrastructure that the ecosystem needs — pathways from beginner to professional that are rigorous, relevant, and accessible.",
+      "Abena leads Codetopia Academy, the initiative built to bridge the talent development gap. Her work is about creating the structured learning infrastructure that the ecosystem needs — pathways from beginner to professional that are rigorous, relevant, and accessible.",
       "She is skeptical of surface-level education. The Academy is not about certificates. It is about developing technologists who can build real things, solve real problems, and compete at any level.",
-      "The training gap is one of the clearest gaps in the ecosystem. Abena's mandate is to make it disappear.",
+      "The training gap is one of the clearest gaps in the ecosystem. Abena's mandate is to bridge it.",
     ],
     socials: [
       {

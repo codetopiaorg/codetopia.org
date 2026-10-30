@@ -32,7 +32,9 @@ export const PageHero = ({ label, title, intro, link, fullHeight }: Props) => {
           )}
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-6 pt-8">
-            <div className="md:col-span-3 text-sm text-zinc-400">{label}</div>
+            <div className="md:col-span-3 text-lg md:text-xl leading-relaxed text-zinc-400">
+              {label}
+            </div>
             <div className="md:col-span-6 space-y-5 text-lg md:text-xl leading-relaxed text-zinc-300">
               {intro}
             </div>

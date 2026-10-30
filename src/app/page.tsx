@@ -3,7 +3,8 @@ import { EntitySpotlight } from "@/components/sections/EntitySpotlight";
 import { Footer } from "@/components/sections/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Mission } from "@/components/sections/Mission";
-import { Partners } from "@/components/sections/Partners";
+import { PartnerStrip } from "@/components/sections/Partners";
+import { Pillars } from "@/components/sections/Pillars";
 import { TheDispatch } from "@/components/sections/TheDispatch";
 
 export const metadata: Metadata = {
@@ -36,11 +37,15 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#080808]">
+    <main id="main" className="min-h-screen bg-[#080808]">
       <Hero />
-      <EntitySpotlight />
+      <PartnerStrip />
       <Mission />
-      <Partners />
+      <EntitySpotlight />
+      <Pillars
+        title="Five commitments."
+        intro="Every initiative Codetopia builds exists to advance one or more of these. They are not goals. They are the standard."
+      />
       <TheDispatch />
       <Footer />
     </main>

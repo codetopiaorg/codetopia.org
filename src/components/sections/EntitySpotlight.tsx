@@ -10,9 +10,7 @@ export const EntitySpotlight = () => {
       className="bg-[#080808] px-6 md:px-12 pt-10 md:pt-14 pb-24 md:pb-32 scroll-mt-16"
     >
       <div className="max-w-7xl mx-auto">
-        <SectionHeading
-          title="Initiatives"
-        >
+        <SectionHeading title="Initiatives">
           <Link
             href="/initiatives"
             className="group inline-flex items-center gap-2 text-sm text-white"

@@ -3,7 +3,7 @@ import { PageHero } from "@/components/sections/PageHero";
 
 export default function NotFound() {
   return (
-    <main className="bg-[#080808]">
+    <main id="main" className="bg-[#080808]">
       <PageHero
         label="Error 404"
         title="Page not found."

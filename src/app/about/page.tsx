@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About | Codetopia",
     description:
-      "The talent exists. The platform doesn't. Codetopia builds focused initiatives, each purpose-built to close a specific gap in Africa's technology ecosystem.",
+      "The talent exists. The platform doesn't. Codetopia builds focused initiatives, each purpose-built to bridge a specific gap in Africa's technology ecosystem.",
     url: "https://codetopia.org/about",
     siteName: "Codetopia",
     images: [
@@ -30,15 +30,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About | Codetopia",
     description:
-      "The talent exists. The platform doesn't. Purpose-built initiatives closing gaps in Africa's technology ecosystem.",
+      "The talent exists. The platform doesn't. Purpose-built initiatives bridging gaps in Africa's technology ecosystem.",
     images: ["/og.png"],
   },
 };
 
 const principles = [
   {
-    title: "Gaps don't close themselves",
-    body: "Codetopia exists because the technology ecosystem has gaps that need deliberate, focused action to close. We identify them. We build around them. That is the only reason any initiative exists.",
+    title: "Gaps don't bridge themselves",
+    body: "Codetopia exists because the technology ecosystem has gaps that need deliberate, focused action to bridge. We identify them. We build around them. That is the only reason any initiative exists.",
   },
   {
     title: "Each gap gets its own initiative",
@@ -46,17 +46,17 @@ const principles = [
   },
   {
     title: "The network grows as the gaps become clear",
-    body: "We don't build on a schedule. We build when a gap is real and the case for closing it is clear. The network expands as the ecosystem demands it.",
+    body: "We don't build on a schedule. We build when a gap is real and the case for bridging it is clear. The network expands as the ecosystem demands it.",
   },
   {
-    title: "We measure whether the gap closed",
-    body: "Launching an initiative is not the achievement. Closing the gap it was built for is. That is the question every initiative has to answer.",
+    title: "We measure whether the gap is bridged",
+    body: "Launching an initiative is not the achievement. Bridging the gap it was built for is. That is the question every initiative has to answer.",
   },
 ];
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#080808]">
+    <main id="main" className="min-h-screen bg-[#080808]">
       <PageHero
         label="About Codetopia"
         title="The talent exists. The platform doesn't."
@@ -71,7 +71,7 @@ export default function AboutPage() {
               What&apos;s missing is the infrastructure around them: structured
               learning, real-world opportunity, communities that push them
               further, and organizations built to carry them forward. That gap
-              is what Codetopia exists to close.
+              is what Codetopia exists to bridge.
             </p>
           </>
         }
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 key={principle.title}
                 className="grid grid-cols-[3rem_1fr] md:grid-cols-[4rem_minmax(0,4fr)_minmax(0,6fr)] gap-x-4 md:gap-x-8 gap-y-3 py-8 md:py-10 items-baseline"
               >
-                <span className="font-display text-xl md:text-2xl font-medium tracking-[-0.02em] text-zinc-600 tabular-nums">
+                <span className="font-display text-2xl font-medium tracking-[-0.02em] text-zinc-600 tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display text-xl md:text-2xl font-medium tracking-[-0.02em] text-white">

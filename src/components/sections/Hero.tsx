@@ -16,5 +16,6 @@ export const Hero = () => (
         producing content, driving innovation and creating social impact.
       </p>
     }
+    link={{ href: "/initiatives", label: "Explore the initiatives" }}
   />
 );

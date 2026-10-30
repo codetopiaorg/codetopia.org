@@ -60,7 +60,7 @@ export const InitiativeIndex = ({ withDescriptions = false }: Props) => (
             className={cn(
               "col-start-3 row-start-1 md:col-start-auto md:row-start-auto justify-self-end inline-flex items-center gap-1.5 text-sm whitespace-nowrap",
               withDescriptions && "pt-2 md:pt-3.5",
-              live ? "text-white" : "text-zinc-600",
+              live ? "text-white" : "text-zinc-500",
             )}
           >
             {live ? (

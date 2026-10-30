@@ -15,7 +15,9 @@ export const NextPage = ({ href, title, description }: Props) => (
         href={href}
         className="group grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-3 pt-8 md:pt-10"
       >
-        <span className="md:col-span-3 text-sm text-zinc-500">Next</span>
+        <span className="md:col-span-3 text-lg md:text-xl text-zinc-500">
+          Next
+        </span>
         <span className="md:col-span-9 flex items-start justify-between gap-6">
           <span>
             <span className="block font-display font-medium text-[clamp(36px,5vw,72px)] leading-[0.95] tracking-[-0.04em] text-white">
