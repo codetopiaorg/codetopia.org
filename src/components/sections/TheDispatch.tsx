@@ -42,7 +42,7 @@ export const TheDispatch = () => {
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         <div className="lg:col-span-5 flex flex-col">
-          <p className="text-sm text-zinc-500 mb-8">The Dispatch</p>
+          <p className="text-lg md:text-xl text-zinc-500 mb-8">The Dispatch</p>
           <h2 className="font-display font-medium text-[clamp(36px,4.5vw,64px)] leading-[0.98] tracking-[-0.04em] text-white">
             News from across the ecosystem.
           </h2>
@@ -51,7 +51,7 @@ export const TheDispatch = () => {
             something worth saying.
           </p>
 
-          <div className="mt-12 lg:mt-auto lg:pt-12">
+          <div className="mt-12 lg:mt-auto lg:pt-12" aria-live="polite">
             {submitted ? (
               <div className="flex items-start gap-4 pt-6">
                 <Check size={18} className="mt-1 text-white shrink-0" />
@@ -80,7 +80,7 @@ export const TheDispatch = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className="w-full sm:flex-1 min-w-0 h-12 bg-transparent border-b border-white/25 text-base text-white placeholder:text-zinc-700 focus:border-white transition-colors outline-none"
+                    className="w-full sm:flex-1 min-w-0 h-12 bg-transparent border-b border-white/25 text-base text-white placeholder:text-zinc-500 focus:border-white transition-colors outline-none"
                   />
                   <button
                     type="submit"
@@ -96,7 +96,11 @@ export const TheDispatch = () => {
                     )}
                   </button>
                 </div>
-                {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
+                {error && (
+                  <p role="alert" className="mt-3 text-sm text-red-400">
+                    {error}
+                  </p>
+                )}
               </form>
             )}
           </div>

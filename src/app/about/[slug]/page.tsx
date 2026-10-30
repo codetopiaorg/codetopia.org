@@ -66,13 +66,13 @@ export default async function MemberPage({ params }: Props) {
   if (!member) notFound();
 
   return (
-    <main className="min-h-screen bg-[#080808]">
+    <main id="main" className="min-h-screen bg-[#080808]">
       {/* Back */}
       <div className="pt-32 pb-0 px-6">
         <div className="max-w-7xl mx-auto">
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-zinc-600 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors"
           >
             <ArrowLeft size={12} />
             The Team
@@ -112,7 +112,7 @@ export default async function MemberPage({ params }: Props) {
           {/* Identity */}
           <div className="space-y-8 pb-2">
             <div className="space-y-3">
-              <p className="text-xs font-bold uppercase tracking-[0.4em] text-zinc-600">
+              <p className="text-xs font-bold uppercase tracking-[0.4em] text-zinc-500">
                 {member.role}
               </p>
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-[0.9] text-white">

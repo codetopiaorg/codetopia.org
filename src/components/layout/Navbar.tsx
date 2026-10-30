@@ -38,6 +38,15 @@ export const Navbar = () => {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
   const isActive = (href: string) => pathname === href;
 
   return (
@@ -50,7 +59,10 @@ export const Navbar = () => {
             : "bg-transparent",
         )}
       >
-        <nav className="max-w-7xl mx-auto h-16 md:h-20 flex items-center justify-between gap-8">
+        <nav
+          aria-label="Main"
+          className="max-w-7xl mx-auto h-16 md:h-20 flex items-center justify-between gap-8"
+        >
           <Link
             href="/"
             className="shrink-0 opacity-90 hover:opacity-100 transition-opacity"
@@ -91,8 +103,9 @@ export const Navbar = () => {
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
             className="md:hidden -mr-2 w-10 h-10 flex items-center justify-center text-zinc-300 hover:text-white transition-colors"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -101,7 +114,10 @@ export const Navbar = () => {
       </header>
 
       {/* Mobile menu */}
-      <div
+      <nav
+        id="mobile-menu"
+        aria-label="Mobile"
+        inert={!menuOpen}
         className={cn(
           "fixed inset-0 z-40 bg-[#080808] flex flex-col transition-opacity duration-300 md:hidden",
           menuOpen
@@ -129,7 +145,7 @@ export const Navbar = () => {
                   >
                     {link.name}
                   </span>
-                  <span className="font-display text-[clamp(34px,9vw,48px)] font-medium tracking-[-0.03em] leading-none text-zinc-700 tabular-nums">
+                  <span className="font-display text-[clamp(34px,9vw,48px)] font-medium tracking-[-0.03em] leading-none text-zinc-600 tabular-nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </Link>
@@ -138,13 +154,13 @@ export const Navbar = () => {
           </div>
 
           <div className="space-y-1.5">
-            <p className="text-xs text-zinc-600 tracking-[0.3em] uppercase">
+            <p className="text-xs text-zinc-500 tracking-[0.3em] uppercase">
               Contact
             </p>
             <p className="text-sm text-zinc-400">hello@codetopia.org</p>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 };

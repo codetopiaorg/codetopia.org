@@ -11,8 +11,8 @@
   --color-zinc-200: #e4e4e7;
   --color-zinc-300: #d4d4d8;
   --color-zinc-400: #a1a1aa;
-  --color-zinc-500: #71717a;
-  --color-zinc-600: #52525b;
+  --color-zinc-500: #7a7a83;
+  --color-zinc-600: #62626b;
   --color-zinc-700: #3f3f46;
   --color-zinc-800: #27272a;
   --color-zinc-900: #18181b;
@@ -140,6 +140,11 @@ html {
 @layer base {
   * {
     @apply border-zinc-800 outline-none;
+  }
+
+  /* Keyboard focus only; mouse clicks stay ring-free. */
+  :focus-visible {
+    @apply outline-2 outline-solid outline-offset-4 outline-white;
   }
 
   body {
