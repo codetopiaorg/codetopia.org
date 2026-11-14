@@ -1,7 +1,7 @@
 ---
-title: Designing health posters with nursing and midwifery students
+title: Nursing and Midwifery Training College, Koforidua
 date: 2026-04-01
-summary: An IT literacy workshop at the Nursing and Midwifery Training College, Koforidua, run with Becc Academy, on making clear health posters with Canva.
+summary: IT Literacy Workshop at the Nursing and Midwifery Training College, Koforidua, with Becc Academy and Codetopia Community.
 author: Codetopia Community
 cover: /blog/nursing-college-it-literacy-2026/cover.jpg
 ---
