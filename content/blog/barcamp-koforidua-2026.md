@@ -4,7 +4,6 @@ date: 2026-11-14
 summary: Our administrator Juliet Asiedu mentored at BarCamp Koforidua on how technology can make you better at whatever you already do.
 author: Codetopia Academy
 cover: /blog/barcamp-koforidua-2026/room.jpg
-draft: true
 ---
 
 On Saturday 14 November, Codetopia Academy was at **BarCamp Koforidua 2026**, held at SGS, Koforidua Technical University. The theme this year was *Environment, Finance and Impact*, and the day was all about learning, sharing, networking and mentoring.
