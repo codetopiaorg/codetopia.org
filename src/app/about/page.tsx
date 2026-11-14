@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/sections/Footer";
-import { NextPage } from "@/components/sections/NextPage";
-import { PageHero } from "@/components/sections/PageHero";
-import { Pillars } from "@/components/sections/Pillars";
-import { SectionHeading } from "@/components/sections/SectionHeading";
+import {
+  ButtonLink,
+  Chapter,
+  Closing,
+  PageIntro,
+  RuledGrid,
+} from "@/components/site/kit";
+import { pillars } from "@/lib/pillars";
 
 export const metadata: Metadata = {
   title: "About",
@@ -56,82 +60,91 @@ const principles = [
 
 export default function AboutPage() {
   return (
-    <main id="main" className="min-h-screen bg-[#080808]">
-      <PageHero
-        label="About Codetopia"
+    <main id="main" className="min-h-screen bg-white">
+      <PageIntro
+        eyebrow="About Codetopia"
         title="The talent exists. The platform doesn't."
         intro={
-          <>
-            <p>
-              Africa&apos;s technology gap isn&apos;t a talent problem. The
-              engineers, designers, builders and thinkers are here, with the
-              ambition and capacity to compete with anyone in the world.
-            </p>
-            <p className="text-zinc-400">
-              What&apos;s missing is the infrastructure around them: structured
-              learning, real-world opportunity, communities that push them
-              further, and organizations built to carry them forward. That gap
-              is what Codetopia exists to bridge.
-            </p>
-          </>
+          <p>
+            Africa&apos;s technology gap isn&apos;t a talent problem. The
+            engineers, designers, builders and thinkers are here. What&apos;s
+            missing is the infrastructure around them.
+          </p>
         }
       />
 
-      <section className="bg-[#080808] px-6 md:px-12 py-24 md:py-32">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading
-            title="One organization. Many focused initiatives."
-            className="mb-0 md:mb-0"
-          >
-            <div className="space-y-5 leading-relaxed">
-              <p className="text-zinc-300 text-lg">
-                We don&apos;t try to solve everything through a single product.
-                Each initiative is its own entity, with its own identity,
-                mission and operating model.
-              </p>
-              <p className="text-zinc-500">
-                Independent enough to go deep. Connected enough to reinforce
-                each other. The network grows as new gaps become clear.
-              </p>
-            </div>
-          </SectionHeading>
-        </div>
-      </section>
+      <Chapter
+        label="The gap"
+        title="What's missing is everything around the talent."
+        intro={
+          <p>
+            Structured learning, real-world opportunity, communities that push
+            people further, and organizations built to carry them forward. That
+            gap is what Codetopia exists to bridge.
+          </p>
+        }
+      />
 
-      <Pillars
+      <Chapter
+        label="How we work"
+        title="One organization. Many focused initiatives."
+        intro={
+          <p>
+            We don&apos;t try to solve everything through a single product. Each
+            initiative is its own entity, with its own identity, mission and way
+            of working. Independent enough to go deep, connected enough to
+            reinforce each other.
+          </p>
+        }
+      >
+        <ButtonLink href="/initiatives" variant="secondary">
+          See the initiatives
+        </ButtonLink>
+      </Chapter>
+
+      <Chapter
+        label="Commitments"
         title="Five commitments."
-        intro="Every initiative Codetopia builds exists to advance one or more of these. They are not goals. They are the standard."
-      />
+        intro={
+          <p>
+            Every initiative exists to advance one or more of these. They are
+            not goals. They are the standard.
+          </p>
+        }
+      >
+        <RuledGrid
+          columns={5}
+          items={pillars.map((pillar) => ({
+            title: pillar.label,
+            body: pillar.description,
+          }))}
+        />
+      </Chapter>
 
-      <section className="bg-[#080808] px-6 md:px-12 py-24 md:py-32">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading title="Principles." />
-          <ol>
-            {principles.map((principle, i) => (
-              <li
-                key={principle.title}
-                className="grid grid-cols-[3rem_1fr] md:grid-cols-[4rem_minmax(0,4fr)_minmax(0,6fr)] gap-x-4 md:gap-x-8 gap-y-3 py-8 md:py-10 items-baseline"
-              >
-                <span className="font-display text-2xl font-medium tracking-[-0.02em] text-zinc-600 tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-xl md:text-2xl font-medium tracking-[-0.02em] text-white">
-                  {principle.title}
-                </h3>
-                <p className="col-start-2 md:col-start-auto text-zinc-500 leading-relaxed max-w-xl">
-                  {principle.body}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <Chapter label="Principles" title="Principles.">
+        <ol>
+          {principles.map((principle, i) => (
+            <li
+              key={principle.title}
+              className="grid grid-cols-[3rem_1fr] md:grid-cols-12 gap-x-8 gap-y-2 py-8 md:py-10"
+            >
+              <span className="md:col-span-1 text-sm tabular-nums text-zinc-500 md:pt-1.5">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="md:col-span-5 font-display text-xl md:text-2xl font-medium tracking-[-0.02em] text-black">
+                {principle.title}
+              </h3>
+              <p className="col-start-2 md:col-start-auto md:col-span-6 text-zinc-600 leading-relaxed">
+                {principle.body}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </Chapter>
 
-      <NextPage
-        href="/initiatives"
-        title="Initiatives"
-        description="Where these commitments become organizations, each built for one gap."
-      />
+      <Closing title="See where these commitments become organizations.">
+        <ButtonLink href="/initiatives">Explore the initiatives</ButtonLink>
+      </Closing>
 
       <Footer />
     </main>

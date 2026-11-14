@@ -32,6 +32,8 @@ export interface PostMeta {
   summary: string;
   author: string;
   cover?: string;
+  /** minutes to read, from the word count */
+  minutes: number;
 }
 
 export interface Post extends PostMeta {
@@ -56,6 +58,7 @@ function read(slug: string) {
     summary: String(data.summary ?? ""),
     author: String(data.author ?? "Codetopia"),
     cover: data.cover ? String(data.cover) : undefined,
+    minutes: Math.max(1, Math.round(content.split(/\s+/).length / 220)),
   };
   return { meta, content };
 }

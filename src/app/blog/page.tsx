@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Footer } from "@/components/sections/Footer";
-import { PageHero } from "@/components/sections/PageHero";
-import { formatDate, getPosts } from "@/lib/blog";
+import { TheDispatch } from "@/components/sections/TheDispatch";
+import { Container, PageIntro } from "@/components/site/kit";
+import { FeaturedPost, PostCard } from "@/components/site/PostCard";
+import { getPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -19,51 +20,39 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const posts = getPosts();
+  const [featured, ...rest] = getPosts();
   return (
-    <main id="main" className="min-h-screen bg-[#080808]">
-      <PageHero
-        label="Blog"
+    <main id="main" className="min-h-screen bg-white">
+      <PageIntro
+        eyebrow="Blog"
         title="Notes from the work."
         intro={<p>News and writing from Codetopia and its initiatives.</p>}
       />
 
-      <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
-        <div className="max-w-7xl mx-auto">
-          {posts.length === 0 ? (
-            <p className="pt-8 text-lg text-zinc-500">No posts yet.</p>
+      <section className="pt-12 md:pt-20 pb-24 md:pb-40">
+        <Container>
+          {!featured ? (
+            <p className="text-lg text-zinc-500">
+              No posts yet. The first one is on its way.
+            </p>
           ) : (
-            <ol>
-              {posts.map((post) => (
-                <li key={post.slug}>
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="group grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-3 py-8 md:py-10 items-baseline"
-                  >
-                    <time
-                      dateTime={post.date}
-                      className="md:col-span-3 text-zinc-500"
-                    >
-                      {formatDate(post.date)}
-                    </time>
-                    <span className="md:col-span-9">
-                      <span className="block font-display text-2xl md:text-4xl font-medium tracking-[-0.03em] leading-tight text-white group-hover:text-zinc-300 transition-colors">
-                        {post.title}
-                      </span>
-                      {post.summary && (
-                        <span className="mt-3 block max-w-2xl text-zinc-500 leading-relaxed">
-                          {post.summary}
-                        </span>
-                      )}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ol>
+            <>
+              <FeaturedPost post={featured} />
+              {rest.length > 0 && (
+                <ul className="mt-24 md:mt-32 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+                  {rest.map((post) => (
+                    <li key={post.slug}>
+                      <PostCard post={post} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </>
           )}
-        </div>
+        </Container>
       </section>
 
+      <TheDispatch />
       <Footer />
     </main>
   );
