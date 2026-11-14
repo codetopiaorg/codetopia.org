@@ -12,7 +12,9 @@
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.13.0",
     "clsx": "^2.1.1",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.577.0",
+    "marked": "^18.2.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",

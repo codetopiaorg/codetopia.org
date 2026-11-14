@@ -12,6 +12,7 @@ const navLinks = [
   { name: "Initiatives", href: "/initiatives" },
   { name: "About", href: "/about" },
   { name: "Partners", href: "/partners" },
+  { name: "Blog", href: "/blog" },
 ];
 
 export const Navbar = () => {
@@ -47,7 +48,8 @@ export const Navbar = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
-  const isActive = (href: string) => pathname === href;
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <>
