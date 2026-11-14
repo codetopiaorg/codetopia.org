@@ -239,3 +239,79 @@ html {
     animation-delay: 700ms;
   }
 }
+
+/* Blog post body: rendered Markdown */
+.post {
+  color: #d4d4d8;
+  font-size: 1.25rem;
+  line-height: 1.75;
+}
+.post > * + * {
+  margin-top: 1.5em;
+}
+.post h2,
+.post h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: white;
+  margin-top: 2.5em;
+}
+.post h2 {
+  font-size: 2rem;
+}
+.post h3 {
+  font-size: 1.5rem;
+}
+.post a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.post strong {
+  color: white;
+}
+.post ul,
+.post ol {
+  padding-left: 1.25em;
+}
+.post ul {
+  list-style: disc;
+}
+.post ol {
+  list-style: decimal;
+}
+.post li + li {
+  margin-top: 0.5em;
+}
+.post blockquote {
+  border-left: 2px solid #3f3f46;
+  padding-left: 1.25em;
+  color: #a1a1aa;
+}
+.post img {
+  width: 100%;
+  height: auto;
+}
+.post code {
+  font-size: 0.9em;
+  color: white;
+}
+.post pre {
+  overflow-x: auto;
+  background: #18181b;
+  padding: 1.25em;
+}
+.post hr {
+  border-color: #27272a;
+}
+.post figure {
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
+.post figcaption {
+  margin-top: 0.75em;
+  font-size: 0.95rem;
+  color: #71717a;
+}
