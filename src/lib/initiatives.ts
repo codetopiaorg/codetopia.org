@@ -27,7 +27,7 @@ export type Initiative = {
   description: string;
 };
 
-// Add new initiatives here. Cards and counts update automatically.
+// Add new initiatives here. The pages update automatically.
 export const initiatives: Initiative[] = [
   {
     name: "Codetopia Community",

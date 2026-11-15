@@ -50,87 +50,105 @@ const socials = [
   },
 ];
 
-const footerLinks = [
-  { label: "About", href: "/about" },
-  { label: "Initiatives", href: "/initiatives" },
-  { label: "Partners", href: "/partners" },
-  { label: "The Dispatch", href: "/#dispatch" },
+const columns = [
+  {
+    title: "Initiatives",
+    links: [
+      { label: "Community", href: "https://community.codetopia.org" },
+      { label: "Academy", href: "https://academy.codetopia.org" },
+      { label: "Labs", href: "https://labs.codetopia.org" },
+      { label: "All initiatives", href: "/initiatives" },
+    ],
+  },
+  {
+    title: "Codetopia",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Partners", href: "/partners" },
+      { label: "Blog", href: "/blog" },
+      { label: "The Dispatch", href: "/#dispatch" },
+    ],
+  },
 ];
 
+// Linear-style footer: logo and contact on the left, plain link columns on the right
 export const Footer = () => {
   return (
     <footer
       id="contact"
-      className="relative overflow-hidden bg-[#080808] px-6 md:px-12 pt-24 md:pt-32 pb-10 scroll-mt-16"
+      className="relative overflow-hidden bg-white pt-16 md:pt-20 pb-10 scroll-mt-16"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12">
-          <div className="lg:col-span-7">
-            <h2 className="font-display font-medium text-[clamp(40px,6vw,88px)] leading-[0.95] tracking-[-0.04em] text-white">
-              Get in touch.
-            </h2>
-            <p className="mt-6 max-w-md text-zinc-400 leading-relaxed">
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-x-8 gap-y-12">
+          <div className="col-span-2 md:col-span-6">
+            <Image
+              src={logo}
+              alt="Codetopia"
+              width={140}
+              height={44}
+              className="w-auto h-8 object-contain object-left brightness-0"
+            />
+            <p className="mt-6 max-w-xs text-sm text-zinc-500 leading-relaxed">
               Partnerships, press and institutional matters.
             </p>
-            <div className="mt-10">
+            <div className="mt-3">
               <CopyEmail email="hello@codetopia.org" />
             </div>
           </div>
 
-          <div className="lg:col-span-5 grid grid-cols-2 gap-10 lg:pt-14">
-            <div>
-              <p className="font-display text-sm font-bold tracking-tight uppercase text-white mb-5">
-                Explore
-              </p>
-              <ul className="space-y-3">
-                {footerLinks.map((link) => (
+          {columns.map((column) => (
+            <div key={column.title} className="md:col-span-2">
+              <p className="text-sm font-medium text-black">{column.title}</p>
+              <ul className="mt-4 space-y-3">
+                {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-zinc-300 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.href.startsWith("http") ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-zinc-500 hover:text-black transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-zinc-500 hover:text-black transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
             </div>
-            <div>
-              <p className="font-display text-sm font-bold tracking-tight uppercase text-white mb-5">
-                Follow
-              </p>
-              <ul className="space-y-3">
-                {socials.map((social) => (
-                  <li key={social.label}>
-                    <a
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-2.5 text-sm text-zinc-300 hover:text-white transition-colors"
-                    >
-                      <social.icon className="w-3.5 h-3.5 text-zinc-600 group-hover:text-white transition-colors" />
-                      {social.label}
-                      <span className="sr-only"> (opens in a new tab)</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          ))}
+
+          <div className="md:col-span-2">
+            <p className="text-sm font-medium text-black">Follow</p>
+            <ul className="mt-4 space-y-3">
+              {socials.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2.5 text-sm text-zinc-500 hover:text-black transition-colors"
+                  >
+                    <social.icon className="w-3.5 h-3.5" />
+                    {social.label}
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="relative z-10 mt-[max(8rem,14vw)] flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
-          <Image
-            src={logo}
-            alt="Codetopia"
-            width={140}
-            height={44}
-            className="w-auto h-9 object-contain object-left brightness-0 invert opacity-70"
-          />
-          <p className="text-xs text-zinc-500">
-            © {new Date().getFullYear()} Codetopia. Built in Ghana.
-          </p>
-        </div>
+        <p className="mt-[max(10rem,17vw)] text-xs text-zinc-500">
+          © {new Date().getFullYear()} Codetopia. Built in Ghana.
+        </p>
       </div>
 
       <RisingWordmark />
@@ -179,7 +197,7 @@ const RisingWordmark = () => {
     <p
       ref={ref}
       aria-hidden="true"
-      className="font-display pointer-events-none absolute inset-x-0 bottom-0 z-0 text-center leading-none font-bold tracking-tight text-white/10 uppercase select-none will-change-transform"
+      className="font-display pointer-events-none absolute inset-x-0 -bottom-[0.18em] z-0 text-center leading-none font-bold tracking-[-0.04em] uppercase select-none will-change-transform bg-gradient-to-b from-zinc-200 to-white bg-clip-text text-transparent"
       style={{ fontSize: "19vw" }}
     >
       Codetopia
@@ -200,18 +218,20 @@ const CopyEmail = ({ email }: { email: string }) => {
     <button
       type="button"
       onClick={handleCopy}
-      className="group inline-flex items-center gap-4 w-fit"
+      className="group inline-flex items-center gap-2 w-fit"
       title="Copy Email"
     >
-      <span className="text-xl md:text-2xl text-white">{email}</span>
-      <span className="ml-1 text-zinc-600 group-hover:text-white transition-colors">
+      <span className="text-sm text-black underline underline-offset-4 decoration-zinc-300">
+        {email}
+      </span>
+      <span className="text-zinc-400 group-hover:text-black transition-colors">
         {copied ? (
-          <FaCheck className="w-3 h-3 text-white" />
+          <FaCheck className="w-3 h-3 text-black" />
         ) : (
           <FaCopy className="w-3 h-3" />
         )}
       </span>
-      <output className="text-xs text-zinc-400 animate-fade-in">
+      <output className="text-xs text-zinc-500 animate-fade-in">
         {copied ? "Copied" : ""}
       </output>
     </button>

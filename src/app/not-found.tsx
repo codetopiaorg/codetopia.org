@@ -1,15 +1,15 @@
 import { Footer } from "@/components/sections/Footer";
-import { PageHero } from "@/components/sections/PageHero";
+import { ButtonLink, PageIntro } from "@/components/site/kit";
 
 export default function NotFound() {
   return (
-    <main id="main" className="bg-[#080808]">
-      <PageHero
-        label="Error 404"
+    <main id="main" className="bg-white">
+      <PageIntro
         title="Page not found."
         intro={<p>This page doesn&apos;t exist or has been moved.</p>}
-        link={{ href: "/", label: "Return home" }}
-      />
+      >
+        <ButtonLink href="/">Return home</ButtonLink>
+      </PageIntro>
       <Footer />
     </main>
   );

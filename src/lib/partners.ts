@@ -10,6 +10,8 @@ export type Partner = {
   // Which part of Codetopia the work was with. Shown under the logo so a
   // partner of one initiative is never read as a partner of all of them.
   initiative: string;
+  // the logo file is white (made for dark backgrounds), so flip it on white
+  whiteLogo?: boolean;
 };
 
 // Organizations Codetopia has worked with, across every initiative.
@@ -25,6 +27,7 @@ export const partners: Partner[] = [
     logo: ieeeCsLogo,
     website: "https://www.computer.org",
     initiative: "Community",
+    whiteLogo: true,
   },
   {
     name: "Django Girls Koforidua",

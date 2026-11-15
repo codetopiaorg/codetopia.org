@@ -1,11 +1,15 @@
-import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fragment } from "react";
 import { Footer } from "@/components/sections/Footer";
-import { PageHero } from "@/components/sections/PageHero";
 import { PartnerGrid } from "@/components/sections/Partners";
-import { SectionHeading } from "@/components/sections/SectionHeading";
+import {
+  ButtonLink,
+  Chapter,
+  Closing,
+  PageIntro,
+  RuledGrid,
+} from "@/components/site/kit";
 import { initiatives } from "@/lib/initiatives";
 
 const description =
@@ -64,7 +68,7 @@ const ways = [
 ];
 
 const linkClass =
-  "text-zinc-300 underline underline-offset-4 decoration-zinc-700 hover:text-white hover:decoration-white transition-colors";
+  "text-black underline underline-offset-4 decoration-zinc-300 hover:decoration-black transition-colors";
 
 // Names each initiative a way goes through. A live initiative links to its
 // site; one without a site yet shows as plain text, and becomes a link on
@@ -95,7 +99,7 @@ const InitiativeLinks = ({ names }: { names: string[] }) => (
       return (
         <Fragment key={name}>
           {i > 0 && (
-            <span aria-hidden="true" className="mx-2 text-zinc-600">
+            <span aria-hidden="true" className="mx-2 text-zinc-300">
               |
             </span>
           )}
@@ -115,89 +119,64 @@ const steps = [
 
 export default function PartnersPage() {
   return (
-    <main id="main" className="min-h-screen bg-[#080808]">
-      <PageHero
-        label="Partners"
+    <main id="main" className="min-h-screen bg-white">
+      <PageIntro
+        eyebrow="Partners"
         title="Partner with Codetopia."
         intro={
           <p>
-            One organization, many ways in: community, education and outreach,
-            through a single point of contact. Tell us what you have in mind,
-            and we&apos;ll bring in the right initiative.
+            One organization, many ways in, through a single point of contact.
+            Tell us what you have in mind, and we&apos;ll bring in the right
+            initiative.
           </p>
         }
-        link={{ href: PARTNER_URL, label: "Get in touch" }}
-      />
+      >
+        <ButtonLink href={PARTNER_URL}>Get in touch</ButtonLink>
+      </PageIntro>
 
-      {/* What: the ways to partner */}
-      <section className="bg-[#080808] px-6 md:px-12 py-24 md:py-32">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading title="Ways to partner." />
-          <ol>
-            {ways.map((way, i) => (
-              <li
-                key={way.title}
-                className="grid grid-cols-[3rem_1fr] md:grid-cols-[5.5rem_minmax(0,4fr)_minmax(0,6fr)] gap-x-4 md:gap-x-8 gap-y-2 py-7 md:py-9 items-start"
-              >
-                <span className="font-display text-2xl md:text-4xl font-medium tracking-[-0.03em] text-zinc-600 tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-2xl md:text-4xl font-medium tracking-[-0.03em] text-white">
-                  {way.title}
-                </h3>
-                <div className="col-start-2 md:col-start-auto md:pt-3 max-w-xl">
-                  <p className="text-sm md:text-base leading-relaxed text-zinc-400">
-                    {way.description}
-                  </p>
-                  <InitiativeLinks names={way.through} />
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <Chapter label="Ways to partner" title="Three ways in.">
+        <RuledGrid
+          items={ways.map((way) => ({
+            title: way.title,
+            body: (
+              <>
+                <p>{way.description}</p>
+                <InitiativeLinks names={way.through} />
+              </>
+            ),
+          }))}
+        />
+      </Chapter>
 
-      {/* Who: proof, straight after the offer */}
-      <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading title="Who we work with.">
-            <p className="text-lg text-zinc-400 leading-relaxed">
-              Organizations we work with across our initiatives, current and
-              past.
-            </p>
-          </SectionHeading>
-          <PartnerGrid />
-        </div>
-      </section>
+      <Chapter
+        label="Who we work with"
+        title="Organizations across the ecosystem."
+        intro={
+          <p>
+            Organizations we work with across our initiatives, current and past.
+          </p>
+        }
+      >
+        <PartnerGrid />
+      </Chapter>
 
-      {/* How: what happens next. No timings promised until someone owns replies. */}
-      <section className="bg-[#080808] px-6 md:px-12 pb-24 md:pb-32">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading title="How it starts." />
-          <ol className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-8">
-            {steps.map((step, i) => (
-              <li key={step}>
-                <span className="font-display text-2xl font-medium tracking-[-0.02em] text-zinc-600 tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-3 text-lg text-white leading-snug max-w-xs">
-                  {step}
-                </p>
-              </li>
-            ))}
-          </ol>
-          <a
-            href={PARTNER_URL}
-            className="group mt-12 inline-flex items-center gap-2 text-sm text-white"
-          >
-            Get in touch
-            <ArrowRight
-              size={14}
-              className="group-hover:translate-x-0.5 transition-transform"
-            />
-          </a>
-        </div>
-      </section>
+      <Chapter label="How it starts" title="Four steps.">
+        <RuledGrid
+          columns={4}
+          items={steps.map((step, i) => ({
+            title: (
+              <span className="tabular-nums text-zinc-500">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+            ),
+            body: <span className="text-lg text-black">{step}</span>,
+          }))}
+        />
+      </Chapter>
+
+      <Closing title="Tell us what you have in mind.">
+        <ButtonLink href={PARTNER_URL}>Get in touch</ButtonLink>
+      </Closing>
 
       <Footer />
     </main>

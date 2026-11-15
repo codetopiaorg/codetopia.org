@@ -66,13 +66,13 @@ export default async function MemberPage({ params }: Props) {
   if (!member) notFound();
 
   return (
-    <main id="main" className="min-h-screen bg-[#080808]">
+    <main id="main" className="min-h-screen bg-white">
       {/* Back */}
       <div className="pt-32 pb-0 px-6">
         <div className="max-w-7xl mx-auto">
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-black transition-colors"
           >
             <ArrowLeft size={12} />
             The Team
@@ -81,25 +81,22 @@ export default async function MemberPage({ params }: Props) {
       </div>
 
       {/* Hero — photo + identity */}
-      <section className="pt-12 pb-24 md:pb-36 px-6 border-b border-white/[0.07]">
+      <section className="pt-12 pb-24 md:pb-36 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 md:gap-20 items-end">
           {/* Photo */}
-          <div className="relative aspect-[3/4] overflow-hidden bg-white/[0.04] w-full max-w-[320px] lg:max-w-none">
+          <div className="relative aspect-[3/4] overflow-hidden bg-zinc-100 w-full max-w-[320px] lg:max-w-none">
             {member.photo ? (
-              <>
-                <Image
-                  src={member.photo}
-                  alt={member.name}
-                  fill
-                  className="object-cover grayscale"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              </>
+              <Image
+                src={member.photo}
+                alt={member.name}
+                fill
+                className="object-cover"
+                priority
+              />
             ) : (
               <div
                 aria-hidden="true"
-                className="absolute inset-0 flex items-center justify-center font-display text-8xl font-medium tracking-[-0.04em] text-white/20 select-none"
+                className="absolute inset-0 flex items-center justify-center font-display text-8xl font-medium tracking-[-0.04em] text-zinc-300 select-none"
               >
                 {member.name
                   .split(" ")
@@ -115,12 +112,12 @@ export default async function MemberPage({ params }: Props) {
               <p className="text-xs font-bold uppercase tracking-[0.4em] text-zinc-500">
                 {member.role}
               </p>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-[0.9] text-white">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-[0.9] text-black">
                 {member.name}
               </h1>
             </div>
 
-            <p className="text-zinc-400 font-sans leading-relaxed text-base md:text-lg max-w-lg">
+            <p className="text-zinc-600 font-sans leading-relaxed text-base md:text-lg max-w-lg">
               {member.bio}
             </p>
 
@@ -132,7 +129,7 @@ export default async function MemberPage({ params }: Props) {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors border border-white/[0.08] hover:border-white/[0.2] px-4 py-2.5"
+                  className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-black transition-colors py-2.5"
                 >
                   {socialIcon(social.platform)}
                   <span>{social.handle}</span>
@@ -144,17 +141,16 @@ export default async function MemberPage({ params }: Props) {
       </section>
 
       {/* Full bio */}
-      <section className="relative py-20 md:py-32 px-6 bg-[#080808] border-b border-white/[0.07] overflow-hidden">
-        <div className="absolute inset-0 glow-top pointer-events-none" />
+      <section className="relative py-20 md:py-32 px-6 bg-white overflow-hidden">
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 md:gap-20">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-black tracking-tighter text-white">
+            <h2 className="text-2xl sm:text-3xl font-black tracking-tighter text-black">
               In their own
               <br />
               words.
             </h2>
           </div>
-          <div className="space-y-5 text-zinc-400 font-sans leading-relaxed text-base md:text-lg">
+          <div className="space-y-5 text-zinc-600 font-sans leading-relaxed text-base md:text-lg">
             {member.fullBio.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
